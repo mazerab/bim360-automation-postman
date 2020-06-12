@@ -1,0 +1,1213 @@
+{
+	"info": {
+		"_postman_id": "1ecf69bc-eaf6-4931-8c3d-9ea672b2e659",
+		"name": "BIM360 Docs Files Transfers",
+		"description": "A collection to document the Forge APIs used to transfer files from and to a BIM360 Docs site.\n\nIt also defines the bearer token that will be passed to subsequent API requests to Forge. ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Two Legged",
+					"item": [
+						{
+							"name": "Authenticate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a0254a11-a172-44cf-ab4f-56051540688c",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"    var jsonData = pm.response.json();",
+											"    pm.environment.set(\"access_token\", jsonData.access_token);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "{{client_id}}",
+											"description": "The Forge app client ID",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "{{client_secret}}",
+											"description": "The Forge app client secret",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "{{scope}}",
+											"description": "The Forge scope",
+											"type": "text"
+										}
+									],
+									"options": {
+										"urlencoded": {}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/authentication/v1/authenticate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"authentication",
+										"v1",
+										"authenticate"
+									]
+								},
+								"description": "Endpoint used to request a bearer token"
+							},
+							"response": []
+						}
+					],
+					"description": "A folder to store all endpoints used for two-legged oAuth flows.",
+					"auth": {
+						"type": "noauth"
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Three Legged",
+					"item": [
+						{
+							"name": "Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7a6a7970-5ba9-46f6-9f26-fde92bdd8bac",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOmNyZWF0ZSIsImRhdGE6d3JpdGUiXSwiY2xpZW50X2lkIjoiSW8xSHM0T2s1dkVLUFlTbTBPQzVBNGpKQWlDQlRxeDUiLCJncmFudF9pZCI6InlycmZ2aHptU3NaNXVxcG52bFZ6QWJmVHQycHlMOTE0IiwiYXVkIjoiaHR0cHM6Ly9hdXRvZGVzay5jb20vYXVkL2p3dGV4cDYwIiwianRpIjoiQzA1NmVmblc4RWwweGViRGxvdGk1VE10anNnNklsUzR0em9rdjljdFZwdWZidjRjbU1Rb1JUeldFSnRsSmdQMCIsInVzZXJpZCI6IktBUURNNjJUNlJVUiIsImV4cCI6MTU5MTg5MTA0MH0.IZKvUCPSNJOWp5mcONg1Y0Qpz8DrZNDAAgpC4cOnY9A",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/userprofile/v1/users/@me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"userprofile",
+										"v1",
+										"users",
+										"@me"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "A folder to store all endpoints used for two-legged oAuth flows.",
+					"auth": {
+						"type": "noauth"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5b4c5c30-346e-4e45-ad58-8562b124eae4",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d395c0d-ea48-4cbf-b175-aebf8f50ec30",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "A folder to stores all the endpoints that pertain to authentication with the Forge platform.",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "94cdc202-48e7-4acd-a6e8-f9e811898183",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0bbf416-862e-42fb-9f58-c1b0bb20657a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Downloads",
+			"item": [
+				{
+					"name": "Hubs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "89f18cdc-4a7d-4616-9dd4-8f217e05504d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hub",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e9288288-fec4-4288-87b9-2efee8fed0a4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id"
+							],
+							"variable": [
+								{
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the metadata of a specific hub"
+					},
+					"response": []
+				},
+				{
+					"name": "Hub Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2488543f-9637-406a-9055-6420fa926ec6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the hub projects."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Top Folders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0aa635d0-4783-4457-a763-c9cb8f761e45",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects",
+								":project_id",
+								"topFolders"
+							],
+							"variable": [
+								{
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								},
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the project top folders."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Files Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc758f71-4352-40ae-9489-275440ea19b3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"key": "folder_id",
+									"value": "{{top_folder_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the Project Files folder contents."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6641c064-f775-4451-8c45-2105dd898f6f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"key": "folder_id",
+									"value": "{{sub_folder_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves a folder contents."
+					},
+					"response": []
+				},
+				{
+					"name": "Download File",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5534012c-6351-4fbb-b617-5ce9c7ca3c2b",
+								"exec": [
+									"var objectId = pm.environment.get(\"storage_object_id\");",
+									"var object = objectId.split(\"/\");",
+									"var objectName = object[1];",
+									"pm.environment.set(\"object_name\", objectName);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e114694e-4699-47f6-a464-f29231443b07",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":bucket_key",
+								"objects",
+								":object_name"
+							],
+							"variable": [
+								{
+									"key": "bucket_key",
+									"value": "{{bucket_key}}",
+									"type": "string"
+								},
+								{
+									"key": "object_name",
+									"value": "{{object_name}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Initiate a download of a file."
+					},
+					"response": []
+				}
+			],
+			"description": "Collection of endpoints needed to successfully download a file from BIM360 Docs.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "446c59c6-806f-4875-9c91-a050e087bc5e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dbd0e827-7325-40dc-aaaa-44d711899db3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Uploads",
+			"item": [
+				{
+					"name": "Hubs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "89f18cdc-4a7d-4616-9dd4-8f217e05504d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs"
+							]
+						},
+						"description": "Retrieves the hubs."
+					},
+					"response": []
+				},
+				{
+					"name": "Hub",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e9288288-fec4-4288-87b9-2efee8fed0a4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id"
+							],
+							"variable": [
+								{
+									"id": "9f74ce8e-8ce3-47dd-aae8-21424b1943d8",
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the metadata of a specific hub."
+					},
+					"response": []
+				},
+				{
+					"name": "Hub Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2488543f-9637-406a-9055-6420fa926ec6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects"
+							],
+							"variable": [
+								{
+									"id": "62bf7043-39df-4849-ac37-6a0ebe6f55b1",
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the hub projects."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Top Folders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0aa635d0-4783-4457-a763-c9cb8f761e45",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects",
+								":project_id",
+								"topFolders"
+							],
+							"variable": [
+								{
+									"id": "c5c9ebf1-252a-4b2e-b85b-9029b0f05e96",
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								},
+								{
+									"id": "42580f55-7507-433d-aa07-ebbc719d8955",
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the project top folders."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Files Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc758f71-4352-40ae-9489-275440ea19b3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"id": "937bb675-4ec8-4aa3-90cf-72ccdbd7e7f5",
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"id": "79ae07a0-4de7-453d-b41d-148082973e64",
+									"key": "folder_id",
+									"value": "{{top_folder_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the Project Files folders."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Storage Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "baa4fdc1-7a75-499b-881d-6a8b7d71c762",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"objects\",\n        \"attributes\": {\n            \"name\": \"{{upload_file_name}}\"\n        },\n        \"relationships\": {\n            \"target\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{upload_folder_id}}\"\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/storage",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"storage"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Creates a new storage location to upload a new file to."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6b657e12-f3df-4879-8d04-a5ba0a3717fd",
+								"exec": [
+									"var objectId = pm.environment.get(\"upload_object_id\");",
+									"var object = objectId.split(\"/\");",
+									"var objectName = object[1];",
+									"pm.environment.set(\"upload_object_name\", objectName);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6841dd14-80d0-4923-abac-2841f28e4fb3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Disposition",
+								"value": "{{upload_file_name}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/Users/mazerab/Downloads/Martins Test Project/MEP-01.rvt"
+							},
+							"options": {
+								"file": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":bucket_key",
+								"objects",
+								":object_name"
+							],
+							"variable": [
+								{
+									"key": "bucket_key",
+									"value": "{{bucket_key}}",
+									"type": "string"
+								},
+								{
+									"key": "object_name",
+									"value": "{{upload_object_name}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create First Version",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2a7e539c-233e-47cc-b375-3e84d3cbf4f9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "901feaba-14cf-46c7-b0b6-ed2e136dd0b6",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/vnd.api+json"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"items\",\n        \"attributes\": {\n            \"displayName\": \"{{upload_file_name}}\",\n            \"extension\": {\n                \"type\": \"items:autodesk.bim360:File\",\n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"tip\": {\n                \"data\": {\n                    \"type\": \"versions\",\n                    \"id\": \"1\"\n                }\n            },\n            \"parent\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{upload_folder_id}}\"\n                }\n            }\n        }\n    },\n    \"included\": [\n        {\n            \"type\": \"versions\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"{{upload_file_name}}\",\n                \"extension\": {\n                    \"type\": \"versions:autodesk.bim360:File\",\n                    \"version\": \"1.0\"\n                }\n            },\n            \"relationships\": {\n                \"storage\": {\n                    \"data\": {\n                        \"type\": \"objects\",\n                        \"id\": \"{{upload_object_id}}\"\n                    }\n                }\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"items"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Collection of endpoints needed to successfully upload a file to BIM360 Docs.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "75fe2d90-41a0-475b-806e-464f2c496b99",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc15f092-93a8-4b99-ac9a-e07f678b6db8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Relationships",
+			"item": [
+				{
+					"name": "Relationships Refs",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a4813182-31fb-4e83-804c-097b2110af65",
+								"exec": [
+									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"version_id\"));",
+									"postman.setEnvironmentVariable(\"encoded_version_id\", encoded);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "33a7a1a2-cc49-413e-a5bf-45e501c7fca9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/versions/:version_id/relationships/refs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"versions",
+								":version_id",
+								"relationships",
+								"refs"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"key": "version_id",
+									"value": "{{encoded_version_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "This endpoint is used to retrieve custom relationship references for a specific item version. \n\nThe response contains a data array of versions for each reference found."
+					},
+					"response": []
+				}
+			],
+			"description": "Collection of endpoints to successfully retrieve custom relationships data in BIM360 Docs.",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d2d90eb1-88f0-4824-9d7f-f01d66b38637",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7eb5e263-3ab3-4bc2-8345-0c565974ba5b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
