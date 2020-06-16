@@ -1,6 +1,6 @@
 # Getting Postman to service your (BIM 360) automation needs
 
-![Postman Version](https://img.shields.io/badge/postman-v6.2.3-green.svg)
+![Postman Version](https://img.shields.io/badge/postman-v7.26.0-green.svg)
 ![Platforms](https://img.shields.io/badge/platform-Windows|MacOS-lightgray.svg)
 ![Node.js](https://img.shields.io/badge/node-%3E%3D%2010.0.0-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
