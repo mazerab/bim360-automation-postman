@@ -5,15 +5,9 @@
 ![Node.js](https://img.shields.io/badge/node-%3E%3D%2010.0.0-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-[![Viewer](https://img.shields.io/badge/Viewer-v7-green.svg)](http://developer.autodesk.com/)
+[![BIM360](https://img.shields.io/badge/BIM360-v2-green.svg)](http://autodesk-forge.github.io)
 [![Data-Management](https://img.shields.io/badge/Data%20Management-v1-green.svg)](http://autodesk-forge.github.io)
 [![OSS](https://img.shields.io/badge/OSS-v2-green.svg)](http://autodesk-forge.github.io)
-[![Model-Derivative](https://img.shields.io/badge/Model%20Derivative-v2-green.svg)](http://autodesk-forge.github.io)
-
-[![koa2](https://img.shields.io/badge/koa-2-green.svg)](https://github.com/koajs/koa)
-![vue2](https://img.shields.io/badge/vue-2.6.6-green.svg)
-[![vuetify](https://img.shields.io/badge/Vuetify-2.0-blue.svg)](https://github.com/vuetifyjs/vuetify)
-[![oauth](https://img.shields.io/badge/passport--oauth-1-brightgreen.svg)](https://github.com/jaredhanson/passport-oauth)
 
 ![Intermediate](https://img.shields.io/badge/Level-Intermediate-blue.svg)
 
