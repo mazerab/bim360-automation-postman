@@ -37,136 +37,24 @@ It focuses on the process of writing, documenting, running, and automating API t
 
 ## Getting Started
 
-This section will guide you through getting the code up and running on your own system.
+This section will guide you through getting the Postman collection up and running on your own system.
 
-1. Installation process
+## The anatomy of a Postman Request
 
-    ```git clone https://github.com/Autodesk-Forge/forge-digital-catalog digital-catalog```\
-    ```cd digital-catalog``` \
-    ```npm install```
+TBD
 
-2. Software dependencies
+### Running the Postman Collection
 
-    Please check `dependencies` in [package.json](package.json).
+1. TBD
 
-## Build and Test
+### Generating the Postman Collection Docs
 
-Because our frontend app (./src/client) is developed separately from our backend (./src/server) - i.e. our backend exposes an
-API for our frontend to talk to, then our frontend is essentially a purely static app. We can deploy
-the built content in the ```www``` directory to any static file server, but we need to make sure to set the correct
-publicPath.
-
-You can review how the frontend app will be built by reading the configuration in the ```./vue.config.js``` file.
-
-To build the frontend app: ```npm run build```
-
-This will create a new directory ```./www``` with the static files.
-
-### Development build
-
-1. Set environment variables
-
-    ```FORGE_CALLBACK_URL=http://localhost:3000/api/forge/callback/oauth``` \
-    ```FORGE_CLIENT_ID=<Your Forge Client ID>``` \
-    ```FORGE_CLIENT_SECRET=<Your Forge Client Secret>``` \
-    ```MONGODB_URI=<Your MongoDB Uri>``` \
-    ```NODE_ENV=development``` \
-    ```USE_LOAD_BALANCER=false```
-
-2. Compile TypeScript
-
-    ```npm run tsbuild```
-
-3. Start Vue.js front-end app
-
-    ```npm run serve```
-
-4. Start Koa.js back-end app
-
-    On first run (only once): \
-    ```npm run init```\
-    ```npm run setadmin init```
-
-    Any time you start the server: \
-    ```npm run dev``` (on mac) \
-    ```npm run windev``` (on windows)
-
-If you run into an error connecting to MongoDB, make sure you specify the database name in your connection string.
-`mongoose.connect('mongodb://username:password@host:port/database?options...', {useNewUrlParser: true});`
-
-To learn how to configure the WebHooks locally, please follow this link: [Local WebHooks Instructions](webhooks)
-
-### Test build
-
-1. Set environment variables
-
-    ```FORGE_CALLBACK_URL=http://localhost:3000/api/forge/callback/oauth``` \
-    ```FORGE_CLIENT_ID=<Your Forge Client ID>``` \
-    ```FORGE_CLIENT_SECRET=<Your Forge Client Secret>``` \
-    ```MONGODB_URI=<Your MongoDB Uri>``` \
-    ```NODE_ENV=test``` \
-    ```USE_LOAD_BALANCER=false```
-
-2. Compile TypeScript
-
-    ```npm run tsbuild```
-
-3. Run the tests
-
-    On first run (only once): \
-    ```npm run init``` \
-    ```npm run setadmin add <email>``` \
-    ```npm run tsbuild:test```
-
-    Any time you run the tests: \
-    ```npm test``` (on mac) \
-    ```npm run wintest``` (on windows)
-
-### Production build
-
-1. Set environment variables
-
-    ```FORGE_CALLBACK_URL=https://<Your Web Server>/api/forge/callback/oauth``` \
-    ```FORGE_CLIENT_ID=<Your Forge Client ID>``` \
-    ```FORGE_CLIENT_SECRET=<Your Forge Client Secret>``` \
-    ```MONGODB_URI=<Your MongoDB Uri>``` \
-    ```NODE_ENV=production``` \
-    ```USE_LOAD_BALANCER=false``` \
-    ```VUE_APP_KOA_HOST=<Your Web Server>``` \
-    ```VUE_HOST=<Your Web Server>```
-
-2. Compile TypeScript
-
-    ```npm run tsbuild```
-
-3. Build Vue.js front-end app
-
-    ```npm run build```
-
-4. Start Koa.js back-end app
-
-    On first run (only once): \
-    ```npm run init```\
-    ```npm run setadmin add <email>```
-
-    Any time you start the server: \
-    ```npm start``` (on mac) \
-    ```npm start``` (on windows)
-
-## Deployment
-
-To learn how to deploy this Forge application, please follow this link: [Deployment Instructions](deployment)
+1. TBD
 
 ## Documentation
 
 The online help for this application can be served through docsify.
 
-To install docsify, please navigate to <https://docsify.js.org/#/quickstart>
-
-The documentation markup files for this application are located under the ```./docs``` folder.
-
-To preview the online help, simply run the command ```docsify serve ./docs``` to start the local server.
-You can then preview your online help site in your browser on ```http://localhost:3000```.
 
 ## Sample Data
 
