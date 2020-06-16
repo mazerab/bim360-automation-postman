@@ -1,5 +1,5 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This project documents ways to automate transfers of Revit linked models in BIM360 Docs. The automation is enabled by the Forge BIM360 and Data Management APIs.
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
