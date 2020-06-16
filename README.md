@@ -14,7 +14,6 @@
 ## Table of Contents
 
 * [Description](#description)
-* [Site](#site)
 * [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
 * [Build and Test](#build-and-test)
@@ -26,52 +25,15 @@
 
 ## Description
 
-The digital catalog project is a Forge-powered responsive web application that enables companies to publish key models (Inventor, Fusion360) from Fusion Team or BIM360 Docs
-to their proprietary catalog. Companies can create the catalog structure they need as well as retire products, which have reached end-of-life, from the catalog.
+This project aims at documenting ways to automate tasks in BIM360 Docs. 
+The automation is powered by combining the Forge [BIM360](https://forge.autodesk.com/en/docs/bim360/v1/reference/http/) and [Data Management](https://forge.autodesk.com/en/docs/data/v2/reference/http/) APIs. 
 
-External users can search the catalog and view a 3D representation of each catalog item using the Forge Viewer.
-
-This digital catalog solution also delivers interactive instructions workflow (assembly / disassembly instructions) by supporting animations authored in Fusion 360 in the Forge Viewer.
-
-This web application can act as a foundation for more advanced workflows, such as digital twin initiatives.
-
-## Site
-
-### Landing Page
-
-![Landing Page](/src/client/public/thumbnail.png)
-
-### Administration Console
-
-![Admin Page](/src/client/public/settings.png)
-
-### Publisher Console
-
-![Publisher Page](/src/client/public/publisher.png)
-
-### Interactive Instructions
-
-![Animation Page](/src/client/public/interactive_instructions.png)
-
-### AR/VR Toolkit
-
-The AR/VR Toolkit feature enables translation of SVF to [glTF](https://www.khronos.org/gltf/) file format.
-
-![ARVR Page](/src/client/public/arvr_toolkit.png)
-
-To learn how to author augmented reality machine instructions, please go to: [Augmented Virtual Reality](arvr)
-
-### Live Demo
-
-[Digital Catalog](https://forge-digital-catalog.herokuapp.com)
+It focuses on the process of writing, documenting, running, and automating API tests with Postman.
 
 ## Prerequisites
 
-- Node.js v10+
+- Postman v7
 - [Forge](https://forge.autodesk.com) application credentials
-- MongoDB database
-  - for example, use the free tier of [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-  - or run it locally: <https://docs.mongodb.com/manual/installation>
 
 ## Getting Started
 
@@ -220,31 +182,6 @@ This project is licensed under the terms of the **MIT** license.
 ## Written By
 
 Bastien Mazeran ([@BastienMazeran](https://twitter.com/BastienMazeran)), Autodesk Customer Success
-
-# Getting Postman to service your (BIM 360) automation needs.
-
-This project aims at documenting ways to automate tasks in BIM360 Docs. 
-The automation is powered by combining the Forge BIM360 and Data Management APIs. 
-
-It focuses on the process of writing, documenting, running, and automating API tests with Postman.
-
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
-
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
 
 
 Learning objectives
