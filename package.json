@@ -1,0 +1,27 @@
+{
+  "name": "bim360-automation-postman",
+  "version": "1.0.0",
+  "description": "A postman / newman based automation for Forge BIM360 APIs",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://cs-accelerators@dev.azure.com/cs-accelerators/BIM360%20Automation%20-%20Postman%20Collection/_git/BIM360%20Automation%20-%20Postman%20Collection"
+  },
+  "keywords": [
+    "Autodesk",
+    "Forge",
+    "Postman",
+    "Newman",
+    "BIM360",
+    "Data",
+    "Management"
+  ],
+  "author": "Bastien Mazeran",
+  "license": "MIT",
+  "dependencies": {
+    "newman": "5.1.0"
+  }
+}

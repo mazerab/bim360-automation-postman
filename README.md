@@ -31,7 +31,8 @@ It focuses on the process of writing, documenting, running, and automating API t
 
 ## Prerequisites
 
-* Postman v7 installed
+* [Postman](https://www.postman.com/downloads/) installed
+* [Newman](https://github.com/postmanlabs/newman) installed
 * [Forge](https://forge.autodesk.com) application credentials
 * [Access to a BIM 360 Account](https://forge.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/get-access-to-account/)
 
