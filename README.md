@@ -31,8 +31,9 @@ It focuses on the process of writing, documenting, running, and automating API t
 
 ## Prerequisites
 
+* Postman v7 installed
 * [Forge](https://forge.autodesk.com) application credentials
-* Postman v7
+* [Access to a BIM 360 Account](https://forge.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/get-access-to-account/)
 
 ## Getting Started
 
@@ -44,7 +45,19 @@ TBD
 
 ### Running the Postman Collection
 
-1. TBD
+The postman collection provided in this repository covers different BIM360 automation use cases.
+
+#### Revit Linked Files Transfer
+
+##### BIM360 Docs Setup
+
+1. Create a new project
+1. Create two folders under that project *Architecture* and *Structural*
+1. Upload as linked files to your BIM360 Docs site the three Revit sample files found in the assets directory
+1. Set the rac_basic_sample_project.rvt file as the parent
+![Upload Linked Files](/assets/media/upload-linked-files.png)
+
+#### Project Setup
 
 ### Generating the Postman Collection Docs
 
@@ -67,16 +80,3 @@ This project is licensed under the terms of the **MIT** license.
 ## Written By
 
 Bastien Mazeran ([@BastienMazeran](https://twitter.com/BastienMazeran)), Autodesk Customer Success
-
-
-Learning objectives
-Creating collections
-Creating GET, POST, PUT, and DELETE requests
-Using environment variables
-Easy Postman assertions
-Advanced Postman assertions
-Running collections with the collection runner and Newman
-Automating test collections as Jenkins projects
-
-
-
