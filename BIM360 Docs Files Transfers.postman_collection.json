@@ -22,9 +22,23 @@
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"access_token should exist\", function () {",
+											"    pm.expect(pm.environment.has('access_token')).to.equal(true);",
 											"    var jsonData = pm.response.json();",
 											"    pm.environment.set(\"access_token\", jsonData.access_token);",
 											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "208dce4a-7f3a-4792-9d5e-53f04f3bcd81",
+										"exec": [
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -219,6 +233,12 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"hub_id should exist\", function () {",
+									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"hub_id\", jsonData.data[0].id);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -258,6 +278,10 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('hub_id should exist', function () {",
+									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -300,6 +324,12 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('project_id should exist', function () {",
+									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"project_id\", jsonData.data[0].id);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -349,6 +379,15 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"project_files_folder_id should exist\", function () {",
+									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(folder) {",
+									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
+									"        return folder.attributes.name === 'Project Files';",
+									"    });",
 									"});"
 								],
 								"type": "text/javascript"
@@ -405,6 +444,15 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"arch_folder_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"arch_folder_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(folder) {",
+									"        pm.environment.set(\"arch_folder_id\", folder.id);",
+									"        return folder.attributes.name === 'Arch';",
+									"    });",
 									"});"
 								],
 								"type": "text/javascript"
@@ -442,7 +490,7 @@
 								},
 								{
 									"key": "folder_id",
-									"value": "{{top_folder_id}}",
+									"value": "{{project_files_folder_id}}",
 									"type": "string"
 								}
 							]
@@ -461,6 +509,16 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"arch_model_object_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"arch_model_object_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.included.some(function(version) {",
+									"        pm.environment.set(\"arch_model_object_id\", version.relationships.storage.data.id);",
+									"        pm.environment.set(\"arch_model_version_id\", version.id);",
+									"        return version.attributes.name === 'Arch-01.rvt';",
+									"    });",
 									"});"
 								],
 								"type": "text/javascript"
@@ -498,7 +556,7 @@
 								},
 								{
 									"key": "folder_id",
-									"value": "{{sub_folder_id}}",
+									"value": "{{arch_folder_id}}",
 									"type": "string"
 								}
 							]
@@ -515,10 +573,10 @@
 							"script": {
 								"id": "5534012c-6351-4fbb-b617-5ce9c7ca3c2b",
 								"exec": [
-									"var objectId = pm.environment.get(\"storage_object_id\");",
+									"var objectId = pm.environment.get(\"arch_model_object_id\");",
 									"var object = objectId.split(\"/\");",
 									"var objectName = object[1];",
-									"pm.environment.set(\"object_name\", objectName);"
+									"pm.environment.set(\"arch_model_object_name\", objectName);"
 								],
 								"type": "text/javascript"
 							}
@@ -566,7 +624,7 @@
 								},
 								{
 									"key": "object_name",
-									"value": "{{object_name}}",
+									"value": "{{arch_model_object_name}}",
 									"type": "string"
 								}
 							]
@@ -805,6 +863,15 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"mep_folder_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"mep_folder_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(folder) {",
+									"        pm.environment.set(\"mep_folder_id\", folder.id);",
+									"        return folder.attributes.name === 'MEP';",
+									"    });",
 									"});"
 								],
 								"type": "text/javascript"
@@ -836,15 +903,13 @@
 							],
 							"variable": [
 								{
-									"id": "937bb675-4ec8-4aa3-90cf-72ccdbd7e7f5",
 									"key": "project_id",
 									"value": "{{project_id}}",
 									"type": "string"
 								},
 								{
-									"id": "79ae07a0-4de7-453d-b41d-148082973e64",
 									"key": "folder_id",
-									"value": "{{top_folder_id}}",
+									"value": "{{project_files_folder_id}}",
 									"type": "string"
 								}
 							]
@@ -854,7 +919,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Storage Location",
+					"name": "Create Storage Location (First Version)",
 					"event": [
 						{
 							"listen": "test",
@@ -863,6 +928,8 @@
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"mep_model_object_id\", jsonData.data.id);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -885,7 +952,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"objects\",\n        \"attributes\": {\n            \"name\": \"{{upload_file_name}}\"\n        },\n        \"relationships\": {\n            \"target\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{upload_folder_id}}\"\n                }\n            }\n        }\n    }\n}",
+							"raw": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"objects\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\"\n        },\n        \"relationships\": {\n            \"target\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{mep_folder_id}}\"\n                }\n            }\n        }\n    }\n}",
 							"options": {
 								"raw": {}
 							}
@@ -915,17 +982,17 @@
 					"response": []
 				},
 				{
-					"name": "Upload File",
+					"name": "Upload File (First Version)",
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
 								"id": "6b657e12-f3df-4879-8d04-a5ba0a3717fd",
 								"exec": [
-									"var objectId = pm.environment.get(\"upload_object_id\");",
+									"var objectId = pm.environment.get(\"mep_model_object_id\");",
 									"var object = objectId.split(\"/\");",
 									"var objectName = object[1];",
-									"pm.environment.set(\"upload_object_name\", objectName);"
+									"pm.environment.set(\"mep_model_object_name\", objectName);"
 								],
 								"type": "text/javascript"
 							}
@@ -948,18 +1015,18 @@
 						"header": [
 							{
 								"key": "x-user-id",
-								"value": "{{x_user_id}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{x_user_id}}"
 							},
 							{
 								"key": "Content-Disposition",
-								"value": "{{upload_file_name}}",
-								"type": "text"
+								"type": "text",
+								"value": "{{mep_file_name}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/octet-stream",
-								"type": "text"
+								"type": "text",
+								"value": "application/octet-stream"
 							}
 						],
 						"body": {
@@ -992,7 +1059,7 @@
 								},
 								{
 									"key": "object_name",
-									"value": "{{upload_object_name}}",
+									"value": "{{mep_model_object_name}}",
 									"type": "string"
 								}
 							]
@@ -1020,6 +1087,12 @@
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"mep_model_item_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"mep_model_item_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"mep_model_item_id\", jsonData.data.id);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1047,7 +1120,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"items\",\n        \"attributes\": {\n            \"displayName\": \"{{upload_file_name}}\",\n            \"extension\": {\n                \"type\": \"items:autodesk.bim360:File\",\n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"tip\": {\n                \"data\": {\n                    \"type\": \"versions\",\n                    \"id\": \"1\"\n                }\n            },\n            \"parent\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{upload_folder_id}}\"\n                }\n            }\n        }\n    },\n    \"included\": [\n        {\n            \"type\": \"versions\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"{{upload_file_name}}\",\n                \"extension\": {\n                    \"type\": \"versions:autodesk.bim360:File\",\n                    \"version\": \"1.0\"\n                }\n            },\n            \"relationships\": {\n                \"storage\": {\n                    \"data\": {\n                        \"type\": \"objects\",\n                        \"id\": \"{{upload_object_id}}\"\n                    }\n                }\n            }\n        }\n    ]\n}",
+							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"items\",\n        \"attributes\": {\n            \"displayName\": \"{{mep_file_name}}\",\n            \"extension\": {\n                \"type\": \"items:autodesk.bim360:File\",\n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"tip\": {\n                \"data\": {\n                    \"type\": \"versions\",\n                    \"id\": \"1\"\n                }\n            },\n            \"parent\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{mep_folder_id}}\"\n                }\n            }\n        }\n    },\n    \"included\": [\n        {\n            \"type\": \"versions\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"{{mep_file_name}}\",\n                \"extension\": {\n                    \"type\": \"versions:autodesk.bim360:File\",\n                    \"version\": \"1.0\"\n                }\n            },\n            \"relationships\": {\n                \"storage\": {\n                    \"data\": {\n                        \"type\": \"objects\",\n                        \"id\": \"{{mep_model_object_id}}\"\n                    }\n                }\n            }\n        }\n    ]\n}",
 							"options": {
 								"raw": {}
 							}
@@ -1072,6 +1145,226 @@
 								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Storage Location (Second Version)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b207f326-510b-43cf-8f8d-74b719d81191",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"mep_model_v2_object_id\", jsonData.data.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"objects\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\"\n        },\n        \"relationships\": {\n            \"target\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{mep_folder_id}}\"\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/storage",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"storage"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Creates a new storage location to upload a new file to."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File (Second Version)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cc4a92c4-2137-4845-9fab-d4c8a2b5043d",
+								"exec": [
+									"var objectId = pm.environment.get(\"mep_model_v2_object_id\");",
+									"var object = objectId.split(\"/\");",
+									"var objectName = object[1];",
+									"pm.environment.set(\"mep_model_v2_object_name\", objectName);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8e3d1816-605e-4f95-9478-354ffde1998c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							},
+							{
+								"key": "Content-Disposition",
+								"type": "text",
+								"value": "{{mep_file_name}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/octet-stream"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/Users/mazerab/Downloads/Martins Test Project/MEP-01.rvt"
+							},
+							"options": {
+								"file": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":bucket_key",
+								"objects",
+								":object_name"
+							],
+							"variable": [
+								{
+									"key": "bucket_key",
+									"value": "{{bucket_key}}",
+									"type": "string"
+								},
+								{
+									"key": "object_name",
+									"value": "{{mep_model_v2_object_name}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Second Version With Refs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "74dcf2f4-576b-489d-88be-6cfb2dfe0cf1",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "29081d2a-baa5-4ba1-b28e-e9929cc436b8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/vnd.api+json"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\" \n    },\n    \"data\": {\n        \"type\": \"versions\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\",\n            \"extension\": { \n                \"type\": \"versions:autodesk.bim360:File\", \n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"item\": { \n                \"data\": { \n                    \"type\": \"items\", \n                    \"id\": \"{{mep_model_item_id}}\"\n                }\n            },\n            \"storage\": { \n                \"data\": { \n                    \"type\": \"objects\",\n                    \"id\": \"{{mep_model_v2_object_id}}\"\n                }\n            },\n            \"refs\": {\n                \"data\": [\n                    {\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_link1}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_link2}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_link3}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/versions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"versions"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "This endpoint creates a new version with relationships refs included.\n\nThis method is not preferred, one should use the new copyFrom feature instead."
 					},
 					"response": []
 				}
@@ -1102,6 +1395,334 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Project Setup",
+			"item": [
+				{
+					"name": "Business Units",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2874c9a2-8fe7-45bd-8b4a-cb3ea0c17d7d",
+								"exec": [
+									"var account_id = pm.environment.get(\"hub_id\");",
+									"account_id = account_id.replace(\"b.\", \"\");",
+									"pm.environment.set(\"account_id\", account_id);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fee69df9-a27c-4681-b9a1-746b75568488",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"business_unit_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"business_unit_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"business_unit_id\", jsonData.business_units[0].id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hq/v1/accounts/:account_id/business_units_structure",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hq",
+								"v1",
+								"accounts",
+								":account_id",
+								"business_units_structure"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Business Units (EU)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2874c9a2-8fe7-45bd-8b4a-cb3ea0c17d7d",
+								"exec": [
+									"var account_id = pm.environment.get(\"hub_id\");",
+									"account_id = account_id.replace(\"b.\", \"\");",
+									"pm.environment.set(\"account_id\", account_id);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fee69df9-a27c-4681-b9a1-746b75568488",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"business_unit_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"business_unit_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"business_unit_id\", jsonData.business_units[0].id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hq/v1/regions/eu/accounts/:account_id/business_units_structure",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hq",
+								"v1",
+								"regions",
+								"eu",
+								"accounts",
+								":account_id",
+								"business_units_structure"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5dddb608-973f-40c1-93cd-5540296bd084",
+								"exec": [
+									"var account_id = pm.environment.get(\"hub_id\");",
+									"account_id = account_id.replace(\"b.\", \"\");",
+									"pm.environment.set(\"account_id\", account_id);",
+									"",
+									"var construction_type = pm.environment.get(\"construction_type\");",
+									"var construction_types = [\"New Construction\", \"Renovation\"];",
+									"if (!construction_types.includes(construction_type)) {",
+									"    throw new Error(\"unknown construction type\");",
+									"}",
+									"",
+									"var contract_type = pm.environment.get(\"contract_type\");",
+									"var contract_types = [\"Construction Management (CM) at Risk\", \"Design-Bid\", \"Design-Bid-Build\", \"Design-Build-Operate\", \"IPD\"];",
+									"if (!contract_types.includes(contract_type)) {",
+									"    throw new Error(\"unknown contract type\");",
+									"}",
+									"",
+									"var currency = pm.environment.get(\"currency\");",
+									"var currencies = [\"USD\", \"AUD\", \"CAD\", \"EUR\", \"GBP\", \"ALL\", \"AZN\", \"BYR\", \"BRL\", \"BGN\",\"CNY\", \"HRK\", \"CZK\", \"DKK\", \"EEK\",\"HKD\", \"HUF\", \"ISK\", \"INR\", \"IRR\", \"ILS\", \"JPY\", \"KZT\", \"KRW\",\"KPW\", \"KGS\", \"LVL\", \"LTL\", \"MKD\", \"MNT\", \"ANG\", \"NOK\", \"PKR\", \"PLN\", \"RON\", \"RUB\", \"SAR\", \"RSD\", \"SGD\", \"ZAR\", \"SEK\", \"CHF\", \"TWD\", \"TRL\", \"UAH\", \"UZS\", \"YER\", \"PHP\", \"NZD\"];",
+									"if (!currencies.includes(currency)) {",
+									"    throw new Error(\"unknown currency\");",
+									"}",
+									"",
+									"var project_type = pm.environment.get(\"project_type\");",
+									"var project_types = [\"Commercial\", \"Convention Center\", \"Data Center\", \"Hotel / Motel\", \"Office\", \"Parking Structure / Garage\", \"Performing Arts\", \"Retail\", \"Stadium/Arena\", \"Theme Park\", \"Warehouse (non-manufacturing)\", \"Healthcare\", \"Assisted Living / Nursing Home\", \"Hospital\", \"Medical Laboratory\", \"Medical Office\", \"OutPatient Surgery Center\", \"Institutional\", \"Court House\", \"Dormitory\", \"Education Facility\", \"Government Building\", \"Library\", \"Military Facility\", \"Museum\", \"Prison / Correctional Facility\", \"Recreation Building\", \"Religious Building\", \"Research Facility / Laboratory\", \"Residential\", \"Multi-Family Housing\", \"Single-Family Housing\", \"Infrastructure\", \"Airport\", \"Bridge\", \"Canal / Waterway\", \"Dams / Flood Control / Reservoirs\", \"Harbor / River Development\", \"Rail\", \"Seaport\", \"Streets / Roads / Highways\", \"Transportation Building\", \"Tunnel\", \"Waste Water / Sewers\", \"Water Supply\", \"Industrial & Energy\", \"Manufacturing / Factory\", \"Oil & Gas\", \"Plant\", \"Power Plant\", \"Solar Far\", \"Utilities\", \"Wind Farm\", \"Sample Projects\", \"Demonstration Project\", \"Template Project\", \"Training Project\"];",
+									"if (!project_types.includes(project_type)) {",
+									"    throw new Error(\"unknown project type\");",
+									"}",
+									"",
+									"var service_type = pm.environment.get(\"service_type\");",
+									"var service_types = [\"field\", \"glue\", \"schedule\", \"plan\", \"doc_manager\"];",
+									"if (!service_types.includes(service_type)) {",
+									"    throw new Error(\"unknown service type\");",
+									"}",
+									"",
+									"var timezone = pm.environment.get(\"timezone\");",
+									"var timezones = [\"Pacific/Honolulu\", \"America/Juneau\", \"America/Los_Angeles\", \"America/Phoenix\", \"America/Denver\", \"America/Chicago\", \"America/New_York\", \"America/Indiana/Indianapolis\", \"Pacific/Pago_Pago\", \"Pacific/Midway\", \"America/Tijuana\", \"America/Chihuahua\", \"America/Mazatlan\", \"America/Guatemala\", \"America/Mexico_City\", \"America/Monterrey\", \"America/Regina\", \"America/Bogota\", \"America/Lima\", \"America/Caracas\", \"America/Halifax\", \"America/Guyana\", \"America/La_Paz\", \"America/Santiago\", \"America/St_Johns\", \"America/Sao_Paulo\", \"America/Argentina/Buenos_Aires\", \"America/Godthab\", \"Atlantic/South_Georgia\", \"Atlantic/Azores\", \"Atlantic/Cape_Verde\", \"Africa/Casablanca\", \"Europe/Dublin\", \"Europe/Lisbon\", \"Europe/London\", \"Africa/Monrovia\", \"ETC/UTC\", \"Europe/Amsterdam\", \"Europe/Belgrade\", \"Europe/Berlin\", \"Europe/Bratislava\", \"Europe/Brussels\", \"Europe/Budapest\", \"Europe/Copenhagen\", \"Europe/Ljubljana\", \"Europe/Madrid\", \"Europe/Paris\", \"Europe/Prague\", \"Europe/Rome\", \"Europe/Sarajevo\", \"Europe/Skopje\", \"Europe/Stockholm\", \"Europe/Vienna\", \"Europe/Warsaw\", \"Africa/Algiers\", \"Europe/Zagreb\", \"Europe/Athens\", \"Europe/Bucharest\", \"Africa/Cairo\", \"Africa/Harare\", \"Europe/Helsinki\", \"Europe/Istanbul\", \"Asia/Jerusalem\", \"Europe/Kiev\", \"Africa/Johannesburg\", \"Europe/Riga\", \"Europe/Sofia\", \"Europe/Tallinn\", \"Europe/Vilnius\", \"Asia/Baghdad\", \"Asia/Kuwait\", \"Europe/Minsk\", \"Africa/Nairobi\", \"Asia/Riyadh\", \"Asia/Tehran\", \"Asia/Muscat\", \"Asia/Baku\", \"Europe/Moscow\", \"Asia/Tbilisi\", \"Asia/Yerevan\", \"Asia/Kabul\", \"Asia/Karachi\", \"Asia/Tashkent\", \"Asia/Kolkata\", \"Asia/Colombo\", \"Asia/Kathmandu\", \"Asia/Almaty\", \"Asia/Dhaka\", \"Asia/Yekaterinburg\", \"Asia/Rangoon\", \"Asia/Bangkok\", \"Asia/Jakarta\", \"Asia/Novosibirsk\", \"Asia/Shanghai\", \"Asia/Chongqing\", \"Asia/Hong_Kong\", \"Asia/Krasnoyarsk\", \"Asia/Kuala_Lumpur\", \"Australia/Perth\", \"Asia/Singapore\", \"Asia/Taipei\", \"Asia/Ulaanbaatar\", \"Asia/Urumqi\", \"Asia/Irkutsk\",\"Asia/Tokyo\", \"Asia/Seoul\", \"Australia/Adelaide\", \"Australia/Darwin\", \"Australia/Brisbane\", \"Australia/Melbourne\", \"Pacific/Guam\", \"Australia/Hobart\", \"Pacific/Port_Moresby\", \"Australia/Sydney\", \"Asia/Yakutsk\", \"Pacific/Noumea\", \"Asia/Vladivostok\", \"Pacific/Auckland\", \"Pacific/Fiji\", \"Asia/Kamchatka\", \"Asia/Magadan\", \"Pacific/Majurov\", \"Pacific/Guadalcanal\", \"Pacific/Tongatapu\", \"Pacific/Apia\", \"Pacific/Fakaofo\"];",
+									"if (!timezones.includes(timezone)) {",
+									"    throw new Error(\"unknown timezone\");",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e1d1a1f-422a-4b47-a622-98ea46de5cb1",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"construction_project\",\n    \"service_types\": \"{{service_type}}\",\n    \"start_date\": \"2015-05-02\",\n    \"end_date\": \"2016-04-03\",\n    \"project_type\": \"{{project_type}}\",\n    \"value\": 3000,\n    \"currency\": \"{{currency}}\",\n    \"job_number\": \"0219-01\",\n    \"address_line_1\": \"The Fifth Avenue\",\n    \"address_line_2\": \"#301\",\n    \"city\": \"New York\",\n    \"state_or_province\": \"New York\",\n    \"postal_code\": \"10011\",\n    \"country\": \"United States\",\n    \"business_unit_id\": \"{{business_unit_id}}\",\n    \"timezone\": \"{{timezone}}\",\n    \"language\": \"en\",\n    \"construction_type\": \"{{construction_type}}\",\n    \"contract_type\": \"{{contract_type}}\",\n    \"template_project_id\": \"{{project_id}}\",\n    \"include_companies\": \"true\",\n    \"include_locations\": \"false\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/hq/v1/accounts/:account_id/projects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hq",
+								"v1",
+								"accounts",
+								":account_id",
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project (EU)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8e744005-ab8c-4c2c-ac61-505d90e1bd53",
+								"exec": [
+									"var account_id = pm.environment.get(\"hub_id\");",
+									"account_id = account_id.replace(\"b.\", \"\");",
+									"pm.environment.set(\"account_id\", account_id);",
+									"",
+									"var construction_type = pm.environment.get(\"construction_type\");",
+									"var construction_types = [\"New Construction\", \"Renovation\"];",
+									"if (!construction_types.includes(construction_type)) {",
+									"    throw new Error(\"unknown construction type\");",
+									"}",
+									"",
+									"var contract_type = pm.environment.get(\"contract_type\");",
+									"var contract_types = [\"Construction Management (CM) at Risk\", \"Design-Bid\", \"Design-Bid-Build\", \"Design-Build-Operate\", \"IPD\"];",
+									"if (!contract_types.includes(contract_type)) {",
+									"    throw new Error(\"unknown contract type\");",
+									"}",
+									"",
+									"var currency = pm.environment.get(\"currency\");",
+									"var currencies = [\"USD\", \"AUD\", \"CAD\", \"EUR\", \"GBP\", \"ALL\", \"AZN\", \"BYR\", \"BRL\", \"BGN\",\"CNY\", \"HRK\", \"CZK\", \"DKK\", \"EEK\",\"HKD\", \"HUF\", \"ISK\", \"INR\", \"IRR\", \"ILS\", \"JPY\", \"KZT\", \"KRW\",\"KPW\", \"KGS\", \"LVL\", \"LTL\", \"MKD\", \"MNT\", \"ANG\", \"NOK\", \"PKR\", \"PLN\", \"RON\", \"RUB\", \"SAR\", \"RSD\", \"SGD\", \"ZAR\", \"SEK\", \"CHF\", \"TWD\", \"TRL\", \"UAH\", \"UZS\", \"YER\", \"PHP\", \"NZD\"];",
+									"if (!currencies.includes(currency)) {",
+									"    throw new Error(\"unknown currency\");",
+									"}",
+									"",
+									"var project_type = pm.environment.get(\"project_type\");",
+									"var project_types = [\"Commercial\", \"Convention Center\", \"Data Center\", \"Hotel / Motel\", \"Office\", \"Parking Structure / Garage\", \"Performing Arts\", \"Retail\", \"Stadium/Arena\", \"Theme Park\", \"Warehouse (non-manufacturing)\", \"Healthcare\", \"Assisted Living / Nursing Home\", \"Hospital\", \"Medical Laboratory\", \"Medical Office\", \"OutPatient Surgery Center\", \"Institutional\", \"Court House\", \"Dormitory\", \"Education Facility\", \"Government Building\", \"Library\", \"Military Facility\", \"Museum\", \"Prison / Correctional Facility\", \"Recreation Building\", \"Religious Building\", \"Research Facility / Laboratory\", \"Residential\", \"Multi-Family Housing\", \"Single-Family Housing\", \"Infrastructure\", \"Airport\", \"Bridge\", \"Canal / Waterway\", \"Dams / Flood Control / Reservoirs\", \"Harbor / River Development\", \"Rail\", \"Seaport\", \"Streets / Roads / Highways\", \"Transportation Building\", \"Tunnel\", \"Waste Water / Sewers\", \"Water Supply\", \"Industrial & Energy\", \"Manufacturing / Factory\", \"Oil & Gas\", \"Plant\", \"Power Plant\", \"Solar Far\", \"Utilities\", \"Wind Farm\", \"Sample Projects\", \"Demonstration Project\", \"Template Project\", \"Training Project\"];",
+									"if (!project_types.includes(project_type)) {",
+									"    throw new Error(\"unknown project type\");",
+									"}",
+									"",
+									"var service_type = pm.environment.get(\"service_type\");",
+									"var service_types = [\"field\", \"glue\", \"schedule\", \"plan\", \"doc_manager\"];",
+									"if (!service_types.includes(service_type)) {",
+									"    throw new Error(\"unknown service type\");",
+									"}",
+									"",
+									"var timezone = pm.environment.get(\"timezone\");",
+									"var timezones = [\"Pacific/Honolulu\", \"America/Juneau\", \"America/Los_Angeles\", \"America/Phoenix\", \"America/Denver\", \"America/Chicago\", \"America/New_York\", \"America/Indiana/Indianapolis\", \"Pacific/Pago_Pago\", \"Pacific/Midway\", \"America/Tijuana\", \"America/Chihuahua\", \"America/Mazatlan\", \"America/Guatemala\", \"America/Mexico_City\", \"America/Monterrey\", \"America/Regina\", \"America/Bogota\", \"America/Lima\", \"America/Caracas\", \"America/Halifax\", \"America/Guyana\", \"America/La_Paz\", \"America/Santiago\", \"America/St_Johns\", \"America/Sao_Paulo\", \"America/Argentina/Buenos_Aires\", \"America/Godthab\", \"Atlantic/South_Georgia\", \"Atlantic/Azores\", \"Atlantic/Cape_Verde\", \"Africa/Casablanca\", \"Europe/Dublin\", \"Europe/Lisbon\", \"Europe/London\", \"Africa/Monrovia\", \"ETC/UTC\", \"Europe/Amsterdam\", \"Europe/Belgrade\", \"Europe/Berlin\", \"Europe/Bratislava\", \"Europe/Brussels\", \"Europe/Budapest\", \"Europe/Copenhagen\", \"Europe/Ljubljana\", \"Europe/Madrid\", \"Europe/Paris\", \"Europe/Prague\", \"Europe/Rome\", \"Europe/Sarajevo\", \"Europe/Skopje\", \"Europe/Stockholm\", \"Europe/Vienna\", \"Europe/Warsaw\", \"Africa/Algiers\", \"Europe/Zagreb\", \"Europe/Athens\", \"Europe/Bucharest\", \"Africa/Cairo\", \"Africa/Harare\", \"Europe/Helsinki\", \"Europe/Istanbul\", \"Asia/Jerusalem\", \"Europe/Kiev\", \"Africa/Johannesburg\", \"Europe/Riga\", \"Europe/Sofia\", \"Europe/Tallinn\", \"Europe/Vilnius\", \"Asia/Baghdad\", \"Asia/Kuwait\", \"Europe/Minsk\", \"Africa/Nairobi\", \"Asia/Riyadh\", \"Asia/Tehran\", \"Asia/Muscat\", \"Asia/Baku\", \"Europe/Moscow\", \"Asia/Tbilisi\", \"Asia/Yerevan\", \"Asia/Kabul\", \"Asia/Karachi\", \"Asia/Tashkent\", \"Asia/Kolkata\", \"Asia/Colombo\", \"Asia/Kathmandu\", \"Asia/Almaty\", \"Asia/Dhaka\", \"Asia/Yekaterinburg\", \"Asia/Rangoon\", \"Asia/Bangkok\", \"Asia/Jakarta\", \"Asia/Novosibirsk\", \"Asia/Shanghai\", \"Asia/Chongqing\", \"Asia/Hong_Kong\", \"Asia/Krasnoyarsk\", \"Asia/Kuala_Lumpur\", \"Australia/Perth\", \"Asia/Singapore\", \"Asia/Taipei\", \"Asia/Ulaanbaatar\", \"Asia/Urumqi\", \"Asia/Irkutsk\",\"Asia/Tokyo\", \"Asia/Seoul\", \"Australia/Adelaide\", \"Australia/Darwin\", \"Australia/Brisbane\", \"Australia/Melbourne\", \"Pacific/Guam\", \"Australia/Hobart\", \"Pacific/Port_Moresby\", \"Australia/Sydney\", \"Asia/Yakutsk\", \"Pacific/Noumea\", \"Asia/Vladivostok\", \"Pacific/Auckland\", \"Pacific/Fiji\", \"Asia/Kamchatka\", \"Asia/Magadan\", \"Pacific/Majurov\", \"Pacific/Guadalcanal\", \"Pacific/Tongatapu\", \"Pacific/Apia\", \"Pacific/Fakaofo\"];",
+									"if (!timezones.includes(timezone)) {",
+									"    throw new Error(\"unknown timezone\");",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "19c5371a-39ec-4cfa-bc63-9f507704a9a4",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"construction_project\",\n    \"service_types\": \"{{service_type}}\",\n    \"start_date\": \"2015-05-02\",\n    \"end_date\": \"2016-04-03\",\n    \"project_type\": \"{{project_type}}\",\n    \"value\": 3000,\n    \"currency\": \"{{currency}}\",\n    \"job_number\": \"0219-01\",\n    \"address_line_1\": \"The Fifth Avenue\",\n    \"address_line_2\": \"#301\",\n    \"city\": \"New York\",\n    \"state_or_province\": \"New York\",\n    \"postal_code\": \"10011\",\n    \"country\": \"United States\",\n    \"business_unit_id\": \"{{business_unit_id}}\",\n    \"timezone\": \"{{timezone}}\",\n    \"language\": \"en\",\n    \"construction_type\": \"{{construction_type}}\",\n    \"contract_type\": \"{{contract_type}}\",\n    \"template_project_id\": \"{{project_id}}\",\n    \"include_companies\": \"true\",\n    \"include_locations\": \"false\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/hq/v1/regions/eu/accounts/:account_id/projects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hq",
+								"v1",
+								"regions",
+								"eu",
+								"accounts",
+								":account_id",
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Relationships",
 			"item": [
 				{
@@ -1112,8 +1733,8 @@
 							"script": {
 								"id": "a4813182-31fb-4e83-804c-097b2110af65",
 								"exec": [
-									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"version_id\"));",
-									"postman.setEnvironmentVariable(\"encoded_version_id\", encoded);"
+									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"arch_model_version_id\"));",
+									"postman.setEnvironmentVariable(\"encoded_arch_model_version_id\", encoded);"
 								],
 								"type": "text/javascript"
 							}
@@ -1125,6 +1746,18 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"version urn links should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"version_urn_link1\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"version_urn_link2\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"version_urn_link3\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    var cnt = 1;",
+									"    jsonData.data.some(function(version) {",
+									"        pm.environment.set(\"version_urn_link\" + cnt, version.id);",
+									"        cnt++;",
+									"    });",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1163,7 +1796,7 @@
 								},
 								{
 									"key": "version_id",
-									"value": "{{encoded_version_id}}",
+									"value": "{{encoded_arch_model_version_id}}",
 									"type": "string"
 								}
 							]
