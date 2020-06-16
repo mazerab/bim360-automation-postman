@@ -1,4 +1,4 @@
-# Getting Postman to service your BIM needs 
+# Getting Postman to service your (BIM 360) automation needs.
 
 This project aims at documenting ways to automate tasks in BIM360 Docs. 
 The automation is powered by combining the Forge BIM360 and Data Management APIs. 
