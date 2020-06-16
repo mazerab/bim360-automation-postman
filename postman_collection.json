@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "1ecf69bc-eaf6-4931-8c3d-9ea672b2e659",
-		"name": "BIM360 Docs Files Transfers",
-		"description": "A collection to document the Forge APIs used to transfer files from and to a BIM360 Docs site.\n\nIt also defines the bearer token that will be passed to subsequent API requests to Forge. ",
+		"name": "BIM360 Automation",
+		"description": "A collection to document the Forge APIs used to automate tasks in BIM360 Docs.\n\nIt also defines the bearer token that will be passed to subsequent API requests to Forge. ",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -446,12 +446,13 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"arch_folder_id should exist\", function () {",
+									"pm.test(\"arch_folder_id and arch_folder_name should exist\", function () {",
 									"    pm.expect(pm.environment.has(\"arch_folder_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"arch_folder_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
 									"        pm.environment.set(\"arch_folder_id\", folder.id);",
-									"        return folder.attributes.name === 'Arch';",
+									"        return folder.attributes.name === pm.environment.get(\"arch_folder_name\");",
 									"    });",
 									"});"
 								],
@@ -512,12 +513,13 @@
 									"});",
 									"",
 									"pm.test(\"arch_model_object_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"arch_file_name\")).to.equal(true);",
 									"    pm.expect(pm.environment.has(\"arch_model_object_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.included.some(function(version) {",
 									"        pm.environment.set(\"arch_model_object_id\", version.relationships.storage.data.id);",
 									"        pm.environment.set(\"arch_model_version_id\", version.id);",
-									"        return version.attributes.name === 'Arch-01.rvt';",
+									"        return version.attributes.name === pm.environment.get(\"arch_file_name\");",
 									"    });",
 									"});"
 								],
@@ -915,6 +917,90 @@
 							]
 						},
 						"description": "Retrieves the Project Files folders."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5ea6730b-a772-485b-982d-a077c7b0a4f2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"arch_model_object_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"arch_model_object_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.included.some(function(version) {",
+									"        pm.environment.set(\"arch_model_object_id\", version.relationships.storage.data.id);",
+									"        pm.environment.set(\"arch_model_version_id\", version.id);",
+									"        return version.attributes.name === 'Arch-01.rvt';",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"version urn links should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"version_urn_arch\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"version_urn_ffe\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"version_urn_struct\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.included.some(function(version) {",
+									"        if (version.attributes.name === 'Arch-01.rvt') {",
+									"            pm.environment.set(\"version_urn_arch\", version.id);",
+									"        }",
+									"        if (version.attributes.name === 'FFE-01.rvt') {",
+									"            pm.environment.set(\"version_urn_ffe\", version.id);",
+									"        }",
+									"        if (version.attributes.name === 'Struct-01.rvt') {",
+									"            pm.environment.set(\"version_urn_struct\", version.id);",
+									"        }",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"key": "folder_id",
+									"value": "{{arch_folder_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves a folder contents."
 					},
 					"response": []
 				},
@@ -1339,7 +1425,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\" \n    },\n    \"data\": {\n        \"type\": \"versions\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\",\n            \"extension\": { \n                \"type\": \"versions:autodesk.bim360:File\", \n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"item\": { \n                \"data\": { \n                    \"type\": \"items\", \n                    \"id\": \"{{mep_model_item_id}}\"\n                }\n            },\n            \"storage\": { \n                \"data\": { \n                    \"type\": \"objects\",\n                    \"id\": \"{{mep_model_v2_object_id}}\"\n                }\n            },\n            \"refs\": {\n                \"data\": [\n                    {\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_link1}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_link2}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_link3}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    }\n}",
+							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\" \n    },\n    \"data\": {\n        \"type\": \"versions\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\",\n            \"extension\": { \n                \"type\": \"versions:autodesk.bim360:File\", \n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"item\": { \n                \"data\": { \n                    \"type\": \"items\", \n                    \"id\": \"{{mep_model_item_id}}\"\n                }\n            },\n            \"storage\": { \n                \"data\": { \n                    \"type\": \"objects\",\n                    \"id\": \"{{mep_model_v2_object_id}}\"\n                }\n            },\n            \"refs\": {\n                \"data\": [\n                    {\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_arch}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_ffe}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_struct}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    }\n}",
 							"options": {
 								"raw": {}
 							}
@@ -1726,7 +1812,7 @@
 			"name": "Relationships",
 			"item": [
 				{
-					"name": "Relationships Refs",
+					"name": "Relationships Refs (Arch v1 model)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1746,18 +1832,6 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"version urn links should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"version_urn_link1\")).to.equal(true);",
-									"    pm.expect(pm.environment.has(\"version_urn_link2\")).to.equal(true);",
-									"    pm.expect(pm.environment.has(\"version_urn_link3\")).to.equal(true);",
-									"    var jsonData = pm.response.json();",
-									"    var cnt = 1;",
-									"    jsonData.data.some(function(version) {",
-									"        pm.environment.set(\"version_urn_link\" + cnt, version.id);",
-									"        cnt++;",
-									"    });",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1797,6 +1871,74 @@
 								{
 									"key": "version_id",
 									"value": "{{encoded_arch_model_version_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "This endpoint is used to retrieve custom relationship references for a specific item version. \n\nThe response contains a data array of versions for each reference found."
+					},
+					"response": []
+				},
+				{
+					"name": "Relationships Refs (MEP v2 model) (Work In Progress)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6a887ac7-05d0-4408-b24f-c3fd1806d276",
+								"exec": [
+									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"mep_model_version_id\"));",
+									"postman.setEnvironmentVariable(\"encoded_mep_model_version_id\", encoded);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "3886b9d6-28d8-47a6-ab77-7985e4de7d63",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/versions/:version_id/relationships/refs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"versions",
+								":version_id",
+								"relationships",
+								"refs"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"key": "version_id",
+									"value": "{{encoded_mep_model_version_id}}",
 									"type": "string"
 								}
 							]
