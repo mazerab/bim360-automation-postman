@@ -24,15 +24,15 @@
 
 ## Description
 
-This project aims at documenting ways to automate tasks in BIM360 Docs. 
-The automation is powered by combining the Forge [BIM360](https://forge.autodesk.com/en/docs/bim360/v1/reference/http/) and [Data Management](https://forge.autodesk.com/en/docs/data/v2/reference/http/) APIs. 
+This project aims at documenting ways to automate tasks in BIM360 Docs.
+The automation is powered by combining the Forge [BIM360](https://forge.autodesk.com/en/docs/bim360/v1/reference/http/) and [Data Management](https://forge.autodesk.com/en/docs/data/v2/reference/http/) APIs.
 
 It focuses on the process of writing, documenting, running, and automating API tests with [Postman](https://www.postman.com/).
 
 ## Prerequisites
 
-- Postman v7
-- [Forge](https://forge.autodesk.com) application credentials
+* [Forge](https://forge.autodesk.com) application credentials
+* Postman v7
 
 ## Getting Started
 
@@ -54,11 +54,9 @@ TBD
 
 The online help for this application can be served through docsify.
 
-
 ## Sample Data
 
-The models used in the live demo can be obtained from \
-<https://knowledge.autodesk.com/support/inventor/troubleshooting/caas/downloads/content/inventor-sample-files.html>
+The Revit models used in the live demo can be obtained from [here](https://knowledge.autodesk.com/support/revit-products/getting-started/caas/CloudHelp/cloudhelp/2020/ENU/Revit-GetStarted/files/GUID-61EF2F22-3A1F-4317-B925-1E85F138BE88-htm.html).
 
 ## License
 
