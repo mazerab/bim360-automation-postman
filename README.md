@@ -32,21 +32,27 @@ It focuses on the process of writing, documenting, running, and automating API t
 ## Prerequisites
 
 * [Postman](https://www.postman.com/downloads/) installed
+* [Node](https://nodejs.org/en/) LTS version installed
 * [Newman](https://github.com/postmanlabs/newman) installed
 * [Forge](https://forge.autodesk.com) application credentials
 * [Access to a BIM 360 Account](https://forge.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/get-access-to-account/)
 
 ## Getting Started
 
-This section will guide you through getting the Postman collection up and running on your own system.
+This section will guide you through getting the Postman collection up and running on your own system, as well as running your Postman collection as a command line using newman NPM library.
 
 ## The anatomy of a Postman Request
 
-TBD
+Throughout the course of this document, we will use Postman requests to call the Forge APIs. A request requires an url, an HTTP verb, and other inputs. To successfully call the Forge APIs, please refer to the [Forge documentation](https://forge.autodesk.com/developer/documentation) for each API endpoint to learn more about their specific requirements.
+
+To learn more about Postman, please refer to the [Postman documentation](https://learning.postman.com/docs/postman/launching-postman/introduction/).
 
 ### Running the Postman Collection
 
 The postman collection provided in this repository covers different BIM360 automation use cases.
+
+After installing Postman, launch the tool and import the postman collection located in `./postman_collection.json`.
+Edit the `Site 1` environment to specify your Forge client ID, client secret and other required variables.
 
 #### Revit Linked Files Transfer
 
@@ -54,9 +60,29 @@ The postman collection provided in this repository covers different BIM360 autom
 
 1. Create a new project
 1. Create two folders under that project *Architecture* and *Structural*
-1. Upload as linked files to your BIM360 Docs site the three Revit sample files found in the assets directory
-1. Set the rac_basic_sample_project.rvt file as the parent
+1. Upload as linked files to your BIM360 Docs site the three Revit sample files found in the `./assets` directory
+1. Set the *rac_basic_sample_project.rvt* file as the parent
 ![Upload Linked Files](/assets/media/upload-linked-files.png)
+
+##### Downloading Revit Linked Files
+
+To successfully download files from BIM360 Docs, one cannot use Postman as it does not support downloading files to disc. Instead, one can use Newman to run Postman collection in a command line and write the response binary to a file on you local disk.
+
+Steps to run the download of a single Revit file:
+
+1. Launch Postman
+1. Set `Site 1` environment variables \
+    ```arch_file_name=rac_basic_sample_project.rvt``` \
+    ```arch_folder_name=Architecture``` \
+    ```base_url=https://developer.api.autodesk.com``` \
+    ```client_id=<your Forge app client ID>``` \
+    ```client_secret=<your Forge app client secret>``` \
+    ```scope=data:read``` \
+    ```x-user-id=<your user ID>```
+1. Export `Site 1` environment to new file `./site_1.postman_environment.json`
+1. Open a terminal and change directory to the repository
+1. Run the command `node script.js`
+1. Check current directory for new file `./rac_basic_sample_project.rvt`
 
 #### Project Setup
 
