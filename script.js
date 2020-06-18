@@ -56,11 +56,11 @@ function setEnvironment(testrun) {
     switch (testrun) {
         case 1:
             options.environment = './assets/environment/download_file.postman_environment.json';
-            options.folders = ['Authentication', 'Downloads'];
+            options.folders = ['Two Legged', 'Downloads'];
             break;
         case 2:
             options.environment = './assets/environment/project_setup.postman_environment.json';
-            options.folders = ['Authentication', 'Project Setup']
+            options.folders = ['Two Legged', 'Project Setup']
             break;
         default:
             break;
