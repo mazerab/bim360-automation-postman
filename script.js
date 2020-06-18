@@ -5,7 +5,8 @@ const prompt = require('prompt');
 
 const testSuites = [
     { '1': 'Download Published File'},
-    { '2': 'Project Setup'}
+    { '2': 'Download Linked Files'},
+    { '3': 'Project Setup'}
 ]
 
 const schema = {
@@ -43,10 +44,19 @@ function runScript(options) {
         console.info('Collection run complete!');
     }).on('request', function (err, execution) { // This is triggered when a response has been recieved
         if (err) { return console.error(err); }
-        if (execution.item.name === 'Download Published File') {
-            fs.writeFile(path.join(__dirname, 'Architecture.zip'), execution.response.stream, function (error) {
-                if (error) { console.error(error); }
-            });
+        switch (execution.item.name) {
+            case 'Download File':
+                fs.writeFile(path.join(__dirname, 'output', 'Architecture.zip'), execution.response.stream, function (error) {
+                    if (error) { console.error(error); }
+                });
+                break;
+            case 'Download Parent File':
+                fs.writeFile(path.join(__dirname, 'output', 'Architecture.rvt'), execution.response.stream, function (error) {
+                    if (error) { console.error(error); }
+                });
+                break;
+            default:
+                break;
         }
     });
 }
@@ -59,6 +69,10 @@ function setEnvironment(testrun) {
             options.folders = ['Two Legged', 'Download Published File'];
             break;
         case 2:
+            options.environment = './assets/environment/download_linked_files.postman_environment.json';
+            options.folders = ['Two Legged', 'Download Linked Files'];
+            break;
+        case 3:
             options.environment = './assets/environment/project_setup.postman_environment.json';
             options.folders = ['Two Legged', 'Project Setup']
             break;

@@ -226,6 +226,395 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Download Linked Files",
+			"item": [
+				{
+					"name": "Hubs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ffb7cbd8-2f23-4f03-aa86-5cb50dab1d93",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"hub_id and hub_name should exist\", function () {",
+									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(hub) {",
+									"        pm.environment.set(\"hub_id\", hub.id);",
+									"        return hub.attributes.name === pm.environment.get(\"hub_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hub Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1b65e14-cdf9-4ad4-809a-0fdcd9d65c74",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"project_id and project_name should exist\", function () {",
+									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(project) {",
+									"        pm.environment.set(\"project_id\", project.id);",
+									"        return project.attributes.name === pm.environment.get(\"project_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects"
+							],
+							"variable": [
+								{
+									"id": "ab14ab9d-d492-41b6-8b25-a4f048a3922b",
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the hub projects."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Top Folders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15a22964-8039-42c1-9092-612b2731889f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"project_files_folder_id should exist\", function () {",
+									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(folder) {",
+									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
+									"        return folder.attributes.name === 'Project Files';",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects",
+								":project_id",
+								"topFolders"
+							],
+							"variable": [
+								{
+									"id": "92de7b3d-2d5f-498a-875a-3e3dd5bb5606",
+									"key": "hub_id",
+									"value": "{{hub_id}}",
+									"type": "string"
+								},
+								{
+									"id": "a8377287-57cd-411a-98c2-7abba5aaae98",
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the project top folders."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Files Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd5312c1-6c0a-43d2-8793-d02ad8b062d8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"arch_folder_id and arch_folder_name should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"arch_folder_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"arch_folder_name\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(folder) {",
+									"        pm.environment.set(\"arch_folder_id\", folder.id);",
+									"        return folder.attributes.name === pm.environment.get(\"arch_folder_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"id": "d0de80ef-20b0-4dcc-9f64-b24c09d874b8",
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"id": "02484f5a-479e-4f05-95cc-c28f97619e8b",
+									"key": "folder_id",
+									"value": "{{project_files_folder_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves the Project Files folder contents."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "864b27d1-3e99-4ccf-a3ba-7b623b81d1f1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"arch_model_object_id and arch_model_version_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"arch_model_object_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"arch_model_version_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.included.some(function(version) {",
+									"        pm.environment.set(\"arch_model_object_id\", version.relationships.storage.data.id);",
+									"        pm.environment.set(\"arch_model_version_id\", version.id);",
+									"        return version.attributes.name === pm.environment.get(\"arch_file_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"id": "1505df72-91ab-4409-be32-111706d5b408",
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"id": "cae6ebb5-0afc-49ae-991c-4b6fddcdbbdc",
+									"key": "folder_id",
+									"value": "{{arch_folder_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Retrieves a folder contents."
+					},
+					"response": []
+				},
+				{
+					"name": "Download Parent File",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "126f0560-215e-4349-a997-4ba80e32ea4e",
+								"exec": [
+									"var objectId = pm.environment.get(\"arch_model_object_id\");",
+									"var object = objectId.split(\"/\");",
+									"var objectName = object[1];",
+									"pm.environment.set(\"arch_model_object_name\", objectName);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "472c06fe-23ae-440d-9a11-d72018c5e610",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":bucket_key",
+								"objects",
+								":object_name"
+							],
+							"variable": [
+								{
+									"id": "72295429-a992-408e-ab5c-9c42a2c54077",
+									"key": "bucket_key",
+									"value": "{{bucket_key}}",
+									"type": "string"
+								},
+								{
+									"id": "0434db8a-df95-4219-9a12-a856f3c2a203",
+									"key": "object_name",
+									"value": "{{arch_model_object_name}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Initiate a download of a file."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Download Published File",
 			"item": [
 				{
@@ -535,7 +924,7 @@
 					"response": []
 				},
 				{
-					"name": "Download Published File",
+					"name": "Download File",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -603,7 +992,7 @@
 					"response": []
 				}
 			],
-			"description": "Collection of endpoints needed to successfully download a file from BIM360 Docs.",
+			"description": "Collection of endpoints needed to successfully download a published Revit model with linked files from BIM360 Docs.\n\nThe download object is a compressed archive that contains all the Revit model files. ",
 			"event": [
 				{
 					"listen": "prerequest",
