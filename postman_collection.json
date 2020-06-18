@@ -221,7 +221,12 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Downloads",
+			"name": "Copy From",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Download Published File",
 			"item": [
 				{
 					"name": "Hubs",
@@ -474,9 +479,9 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"arch_model_object_id should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"arch_file_name\")).to.equal(true);",
+									"pm.test(\"arch_model_object_id and arch_model_version_id should exist\", function () {",
 									"    pm.expect(pm.environment.has(\"arch_model_object_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"arch_model_version_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.included.some(function(version) {",
 									"        pm.environment.set(\"arch_model_object_id\", version.relationships.storage.data.id);",
@@ -530,7 +535,7 @@
 					"response": []
 				},
 				{
-					"name": "Download File",
+					"name": "Download Published File",
 					"event": [
 						{
 							"listen": "prerequest",

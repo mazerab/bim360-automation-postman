@@ -67,7 +67,7 @@ The current environment templates JSON files are located under `./assets/environ
 1. Set the *Architecture.rvt* file as the parent
 ![Upload Linked Files](/assets/media/upload-linked-files.png)
 
-##### Downloading Revit Linked Files
+##### Downloading a Revit Published File
 
 To successfully download files from BIM360 Docs, one cannot use Postman as it does not support downloading files to disc. Instead, one can use Newman to run Postman collection in a command line and write the response binary to a file on you local disk.
 
@@ -85,7 +85,7 @@ Steps to run the download of a single Revit file:
     ```x-user-id=<your user ID>```
 1. Open a terminal and change directory to the repository
 1. Run the command `node script.js`
-1. Input *1* for executing the **Download File** test run
+1. Input **1** for executing the **Download Published File** test run
 1. Check current directory for new file `./Architecture.rvt`
 
 ##### Uploading Revit Files
@@ -113,7 +113,7 @@ Steps to create a new project in BIM360:
    If unsure what values to input, please refer to the [parameters](https://forge.autodesk.com/en/docs/bim360/v1/overview/parameters/) documentation page.
 1. Open a terminal and change directory to the repository
 1. Run the command `node script.js`
-1. Input *2* for executing the **Project Setup** test run
+1. Input **2** for executing the **Project Setup** test run
 1. Go to BIM360 Admin console and verify new project has been created
 
 ### Generating the Postman Collection Docs
