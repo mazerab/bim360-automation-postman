@@ -57,19 +57,13 @@ Depending on which automation task you wish to run, different environments will 
 
 The current environment templates JSON files are located under `./assets/environment`.
 
-#### Revit Linked Files Transfer
+#### Revit Files Transfer
 
-##### BIM360 Docs Setup
-
-1. Create a new project
-1. Create two folders under that project *Architecture* and *Structural*
-1. Upload as linked files to your BIM360 Docs site the three Revit sample files found in the `./assets` directory
-1. Set the *Architecture.rvt* file as the parent
-![Upload Linked Files](/assets/media/upload-linked-files.png)
+To successfully download files from BIM360 Docs, one cannot use Postman as it does not support downloading files to disc. Instead, one can use Newman to run Postman collection in a command line and write the response binary to a file on you local disk.
 
 ##### Downloading a Revit Published File
 
-To successfully download files from BIM360 Docs, one cannot use Postman as it does not support downloading files to disc. Instead, one can use Newman to run Postman collection in a command line and write the response binary to a file on you local disk.
+In this scenario, the Revit linked files were setup in Revit desktop and published to BIM360 Docs.
 
 Steps to run the download of a single Revit file:
 
@@ -87,6 +81,16 @@ Steps to run the download of a single Revit file:
 1. Run the command `node script.js`
 1. Input **1** for executing the **Download Published File** test run
 1. Check current directory for new file `./Architecture.rvt`
+
+##### Downloading Revit Linked Files
+
+This method only works when the Revit host model and linked files are uploaded using the **Upload as linked files** command in BIM360 Docs.
+
+![Upload Linked Files](/assets/media/upload-linked-files.png)
+
+In this scenario, the **Architecture.rvt** file is the parent model. The **Mechanical.rvt** and **Structural.rvt** models are the linked files.
+
+Steps to run the download of Revit Linked Files:
 
 ##### Uploading Revit Files
 
