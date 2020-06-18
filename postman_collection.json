@@ -610,6 +610,76 @@
 						"description": "Initiate a download of a file."
 					},
 					"response": []
+				},
+				{
+					"name": "Relationships Refs",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9ab86f1e-8d98-4ed0-984c-f9b0a929d83d",
+								"exec": [
+									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"arch_model_version_id\"));",
+									"postman.setEnvironmentVariable(\"encoded_arch_model_version_id\", encoded);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "3480b839-83b0-4d23-a3ef-48017bbbaa6d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/versions/:version_id/relationships/refs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"versions",
+								":version_id",
+								"relationships",
+								"refs"
+							],
+							"variable": [
+								{
+									"id": "76cd7fe6-f0f6-42a2-ae60-e74cfde7846a",
+									"key": "project_id",
+									"value": "{{project_id}}",
+									"type": "string"
+								},
+								{
+									"id": "987b77b1-5028-47e4-8435-9e32b887219d",
+									"key": "version_id",
+									"value": "{{encoded_arch_model_version_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "This endpoint is used to retrieve custom relationship references for a specific item version. \n\nThe response contains a data array of versions for each reference found."
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -2057,81 +2127,6 @@
 					"response": []
 				}
 			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Relationships",
-			"item": [
-				{
-					"name": "Relationships Refs",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "a4813182-31fb-4e83-804c-097b2110af65",
-								"exec": [
-									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"arch_model_version_id\"));",
-									"postman.setEnvironmentVariable(\"encoded_arch_model_version_id\", encoded);"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "33a7a1a2-cc49-413e-a5bf-45e501c7fca9",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/versions/:version_id/relationships/refs",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"versions",
-								":version_id",
-								"relationships",
-								"refs"
-							],
-							"variable": [
-								{
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								},
-								{
-									"key": "version_id",
-									"value": "{{encoded_arch_model_version_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "This endpoint is used to retrieve custom relationship references for a specific item version. \n\nThe response contains a data array of versions for each reference found."
-					},
-					"response": []
-				}
-			],
-			"description": "Collection of endpoints to successfully retrieve custom relationships data in BIM360 Docs.",
 			"protocolProfileBehavior": {}
 		}
 	],
