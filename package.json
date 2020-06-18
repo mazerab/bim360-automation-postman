@@ -22,6 +22,7 @@
   "author": "Bastien Mazeran",
   "license": "MIT",
   "dependencies": {
-    "newman": "5.1.0"
+    "newman": "5.1.0",
+    "prompt": "1.0.0"
   }
 }
