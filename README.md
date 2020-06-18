@@ -72,7 +72,7 @@ Steps to run the download of a single Revit file:
 
 1. Launch Postman
 1. Set `Site 1` environment variables \
-    ```arch_file_name=rac_basic_sample_project.rvt``` \
+    ```arch_file_name=Architecture.rvt``` \
     ```arch_folder_name=Architecture``` \
     ```base_url=https://developer.api.autodesk.com``` \
     ```client_id=<your Forge app client ID>``` \
@@ -82,7 +82,9 @@ Steps to run the download of a single Revit file:
 1. Export `Site 1` environment to new file `./site_1.postman_environment.json`
 1. Open a terminal and change directory to the repository
 1. Run the command `node script.js`
-1. Check current directory for new file `./rac_basic_sample_project.rvt`
+1. Check current directory for new file `./Architecture.rvt`
+
+##### Uploading Revit Files
 
 #### Project Setup
 

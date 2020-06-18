@@ -13,7 +13,7 @@ newman.run({
 }).on('request', function (err, execution) { // This is triggered when a response has been recieved
     if (err) { return console.error(err); }
     if (execution.item.name === 'Download File') {
-        fs.writeFile(path.join(__dirname, 'rac_basic_sample_project.rvt'), execution.response.stream, function (error) {
+        fs.writeFile(path.join(__dirname, 'Architecture.rvt'), execution.response.stream, function (error) {
             if (error) { console.error(error); }
         });
     }
