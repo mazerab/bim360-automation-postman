@@ -52,7 +52,10 @@ To learn more about Postman, please refer to the [Postman documentation](https:/
 The postman collection provided in this repository covers different BIM360 automation use cases.
 
 After installing Postman, launch the tool and import the postman collection located in `./postman_collection.json`.
-Edit the `Site 1` environment to specify your Forge client ID, client secret and other required variables.
+
+Depending on which automation task you wish to run, different environments will need to be imported into Postman.
+
+The current environment templates JSON files are located under `./assets/environment`.
 
 #### Revit Linked Files Transfer
 
@@ -61,7 +64,7 @@ Edit the `Site 1` environment to specify your Forge client ID, client secret and
 1. Create a new project
 1. Create two folders under that project *Architecture* and *Structural*
 1. Upload as linked files to your BIM360 Docs site the three Revit sample files found in the `./assets` directory
-1. Set the *rac_basic_sample_project.rvt* file as the parent
+1. Set the *Architecture.rvt* file as the parent
 ![Upload Linked Files](/assets/media/upload-linked-files.png)
 
 ##### Downloading Revit Linked Files
@@ -70,31 +73,52 @@ To successfully download files from BIM360 Docs, one cannot use Postman as it do
 
 Steps to run the download of a single Revit file:
 
-1. Launch Postman
-1. Set `Site 1` environment variables \
+1. Open in your favorite text editor `./assets/environment/download_file.postman_environment.json` and edit the environment variables' values \
     ```arch_file_name=Architecture.rvt``` \
     ```arch_folder_name=Architecture``` \
     ```base_url=https://developer.api.autodesk.com``` \
     ```client_id=<your Forge app client ID>``` \
     ```client_secret=<your Forge app client secret>``` \
+    ```hub_name=<your BIM360 hub name>``` \
+    ```project_name=<your BIM360 project name>``` \
     ```scope=data:read``` \
     ```x-user-id=<your user ID>```
-1. Export `Site 1` environment to new file `./site_1.postman_environment.json`
 1. Open a terminal and change directory to the repository
 1. Run the command `node script.js`
+1. Input *1* for executing the **Download File** test run
 1. Check current directory for new file `./Architecture.rvt`
 
 ##### Uploading Revit Files
 
+TBD
+
 #### Project Setup
+
+Steps to create a new project in BIM360:
+
+1. Open in your favorite text editor `./assets/environment/project_setup.postman_environment.json` and edit the environment variables' values \
+    ```business_unit_name=<your BIM360 business unit>``` \
+    ```base_url=https://developer.api.autodesk.com``` \
+    ```client_id=<your Forge app client ID>``` \
+    ```client_secret=<your Forge app client secret>``` \
+    ```construction_type=<your new project construction type>``` \
+    ```contract_type=<your new project contract type>``` \
+    ```currency=<your new project currency>``` \
+    ```hub_name=<your BIM360 hub name>``` \
+    ```project_type=<your new project type>``` \
+    ```service_type=<your new project service type>``` \
+    ```scope=data:read account:read account:write``` \
+    ```timezone=<your new project timezone>``` \
+    ```x-user-id=<your user ID>``` \
+   If unsure what values to input, please refer to the [parameters](https://forge.autodesk.com/en/docs/bim360/v1/overview/parameters/) documentation page.
+1. Open a terminal and change directory to the repository
+1. Run the command `node script.js`
+1. Input *2* for executing the **Project Setup** test run
+1. Go to BIM360 Admin console and verify new project has been created
 
 ### Generating the Postman Collection Docs
 
 1. TBD
-
-## Documentation
-
-The online help for this application can be served through docsify.
 
 ## Sample Data
 
