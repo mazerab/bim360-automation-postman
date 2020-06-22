@@ -42,7 +42,7 @@ function runScript(options) {
     }, function (err) {
         if (err) { throw err; }
         console.info('Collection run complete!');
-    }).on('request', function (err, execution) { // This is triggered when a response has been recieved
+    }).on('request', function (err, execution) { // This is triggered when a response has been received
         if (err) { return console.error(err); }
         switch (execution.item.name) {
             case 'Download File':
@@ -50,6 +50,13 @@ function runScript(options) {
                     if (error) { console.error(error); }
                 });
                 break;
+            case 'Download Linked File': {
+                console.info(`execution: ${JSON.stringify(execution)}`);
+                fs.writeFile(path.join(__dirname, 'output', `${execution.item.id}.rvt`), execution.response.stream, function(error) {
+                    if (error) { console.error(error); }
+                });
+                break;
+            }
             case 'Download Parent File':
                 fs.writeFile(path.join(__dirname, 'output', 'Architecture.rvt'), execution.response.stream, function (error) {
                     if (error) { console.error(error); }

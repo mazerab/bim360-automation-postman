@@ -632,6 +632,26 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"xrefs and xref_index should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"xref_index\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"xrefs\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    const xrefs = [];",
+									"    jsonData.data.some(function(version) {",
+									"        jsonData.included.some(function(object) {",
+									"            if (object.type === 'versions' && version.id === object.id) {",
+									"                xrefs.push({",
+									"                    \"file_name\": object.attributes.name,",
+									"                    \"object_id\": object.relationships.storage.data.id,",
+									"                    \"object_name\": object.relationships.storage.data.id.split(\"/\")[1]",
+									"                });",
+									"            }",
+									"        });",
+									"    });",
+									"    pm.environment.set(\"xrefs\", JSON.stringify(xrefs));",
+									"    pm.environment.set(\"xref_index\", 0);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -678,6 +698,85 @@
 							]
 						},
 						"description": "This endpoint is used to retrieve custom relationship references for a specific item version. \n\nThe response contains a data array of versions for each reference found."
+					},
+					"response": []
+				},
+				{
+					"name": "Download Linked File",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3e2f569d-8731-4ce8-9ed9-c492bd2dd44b",
+								"exec": [
+									"var xrefs = JSON.parse(pm.variables.get(\"xrefs\"));",
+									"var index = parseInt(pm.variables.get(\"xref_index\"));",
+									"pm.variables.set(\"xref\", xrefs[index]);",
+									"pm.variables.set(\"xref_object_name\", xrefs[index].object_name);",
+									"",
+									"// If we are *not* on the last item in the list,",
+									"// increment the index and set the next request ",
+									"// back to this one. Otherwise end the loop.",
+									"",
+									"if (index + 1 < xrefs.length){",
+									"    pm.variables.set(\"xref_index\", index + 1);",
+									"    postman.setNextRequest('Download Linked File');",
+									"}else{",
+									"    postman.setNextRequest(null)",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "dabd12c7-f79f-49d6-aefc-20dd06c5775c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":bucket_key",
+								"objects",
+								":object_name"
+							],
+							"variable": [
+								{
+									"key": "bucket_key",
+									"value": "{{bucket_key}}",
+									"type": "string"
+								},
+								{
+									"key": "object_name",
+									"value": "{{xref_object_name}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Initiate a download of a file."
 					},
 					"response": []
 				}

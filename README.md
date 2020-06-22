@@ -78,7 +78,7 @@ Steps to run the download of a single Revit file:
     ```scope=data:read``` \
     ```x-user-id=<your user ID>```
 1. Open a terminal and change directory to the repository
-1. Run the command `node script.js`
+1. Run the command `npm test`
 1. Input **1** for executing the **Download Published File** test run
 1. Check current directory for new file `./Architecture.rvt`
 
@@ -116,7 +116,7 @@ Steps to create a new project in BIM360:
     ```x-user-id=<your user ID>``` \
    If unsure what values to input, please refer to the [parameters](https://forge.autodesk.com/en/docs/bim360/v1/overview/parameters/) documentation page.
 1. Open a terminal and change directory to the repository
-1. Run the command `node script.js`
+1. Run the command `npm test`
 1. Input **2** for executing the **Project Setup** test run
 1. Go to BIM360 Admin console and verify new project has been created
 
