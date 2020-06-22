@@ -711,19 +711,8 @@
 								"exec": [
 									"var xrefs = JSON.parse(pm.variables.get(\"xrefs\"));",
 									"var index = parseInt(pm.variables.get(\"xref_index\"));",
-									"pm.variables.set(\"xref\", xrefs[index]);",
-									"pm.variables.set(\"xref_object_name\", xrefs[index].object_name);",
-									"",
-									"// If we are *not* on the last item in the list,",
-									"// increment the index and set the next request ",
-									"// back to this one. Otherwise end the loop.",
-									"",
-									"if (index + 1 < xrefs.length){",
-									"    pm.variables.set(\"xref_index\", index + 1);",
-									"    postman.setNextRequest('Download Linked File');",
-									"}else{",
-									"    postman.setNextRequest(null)",
-									"}"
+									"//pm.variables.set(\"xref\", xrefs[index]);",
+									"pm.variables.set(\"xref_object_name\", xrefs[index].object_name);"
 								],
 								"type": "text/javascript"
 							}
@@ -733,6 +722,18 @@
 							"script": {
 								"id": "dabd12c7-f79f-49d6-aefc-20dd06c5775c",
 								"exec": [
+									"// If we are *not* on the last xref in the list,",
+									"// increment the index and set the next request ",
+									"// back to this one. Otherwise end the loop",
+									"var xrefs = JSON.parse(pm.variables.get(\"xrefs\"));",
+									"var index = parseInt(pm.variables.get(\"xref_index\"));",
+									"if (index + 1 < xrefs.length){",
+									"    pm.variables.set(\"xref_index\", index + 1);",
+									"    postman.setNextRequest('Download Linked File');",
+									"} else {",
+									"    postman.setNextRequest(null)",
+									"}",
+									"",
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
@@ -748,6 +749,16 @@
 								"key": "x-user-id",
 								"type": "text",
 								"value": "{{x_user_id}}"
+							},
+							{
+								"key": "xrefs",
+								"type": "text",
+								"value": "{{xrefs}}"
+							},
+							{
+								"key": "xref_index",
+								"type": "text",
+								"value": "{{xref_index}}"
 							}
 						],
 						"url": {

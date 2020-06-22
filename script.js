@@ -50,9 +50,17 @@ function runScript(options) {
                     if (error) { console.error(error); }
                 });
                 break;
-            case 'Download Linked File': {
-                console.info(`execution: ${JSON.stringify(execution)}`);
-                fs.writeFile(path.join(__dirname, 'output', `${execution.item.id}.rvt`), execution.response.stream, function(error) {
+            case 'Download Linked File': { // We stored index and xrefs array into request header to determine filenames
+                let xref_index = execution.request.headers.filter((header) => {
+                    return header.key === 'xref_index';
+                });
+                xref_index = xref_index[0].value;
+                const xrefs = execution.request.headers.filter((header) => {
+                    return header.key === 'xrefs';
+                });
+                let xref = JSON.parse(xrefs[0].value);
+                xref = xref[xref_index];
+                fs.writeFile(path.join(__dirname, 'output', xref.file_name), execution.response.stream, function(error) {
                     if (error) { console.error(error); }
                 });
                 break;
