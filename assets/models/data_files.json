@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Architecture.rvt",
+        "parent": true,
+        "path": "/Users/mazerab/Repos/bim360-automation-postman/assets/models"
+    },{
+        "name": "Mechanical.rvt",
+        "parent": false,
+        "path": "/Users/mazerab/Repos/bim360-automation-postman/assets/models"
+    },{
+        "name": "Structural.rvt",
+        "parent": true,
+        "path": "/Users/mazerab/Repos/bim360-automation-postman/assets/models"
+    }
+]

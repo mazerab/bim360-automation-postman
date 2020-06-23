@@ -67,7 +67,7 @@ In this scenario, the Revit linked files were setup in Revit desktop and publish
 
 Steps to run the download of a single Revit file:
 
-1. Open in your favorite text editor `./assets/environment/download_file.postman_environment.json` and edit the environment variables' values \
+1. Open in your favorite text editor `./assets/environment/download_published_file.postman_environment.json` and edit the environment variables' values \
     ```arch_file_name=Architecture.rvt``` \
     ```arch_folder_name=Architecture``` \
     ```base_url=https://developer.api.autodesk.com``` \
@@ -91,6 +91,21 @@ This method only works when the Revit host model and linked files are uploaded u
 In this scenario, the **Architecture.rvt** file is the parent model. The **Mechanical.rvt** and **Structural.rvt** models are the linked files.
 
 Steps to run the download of Revit Linked Files:
+
+1. Open in your favorite text editor `./assets/environment/download_linked_files.postman_environment.json` and edit the environment variables' values \
+    ```arch_file_name=Architecture.rvt``` \
+    ```arch_folder_name=<your Docs folder>``` \
+    ```base_url=https://developer.api.autodesk.com``` \
+    ```client_id=<your Forge app client ID>``` \
+    ```client_secret=<your Forge app client secret>``` \
+    ```hub_name=<your BIM360 hub name>``` \
+    ```project_name=<your BIM360 project name>``` \
+    ```scope=data:read``` \
+    ```x-user-id=<your user ID>```
+1. Open a terminal and change directory to the repository
+1. Run the command `npm test`
+1. Input **1** for executing the **Download Published File** test run
+1. Check current directory for new file `./Architecture.rvt`
 
 ##### Uploading Revit Files
 
