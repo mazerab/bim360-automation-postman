@@ -4,9 +4,10 @@ const path = require('path');
 const prompt = require('prompt');
 
 const testSuites = [
-    { '1': 'Download Published File'},
-    { '2': 'Download Linked Files'},
-    { '3': 'Project Setup'}
+    { '1': 'Download Published File' },
+    { '2': 'Upload Linked Files' },
+    { '3': 'Download Linked Files' },
+    { '4': 'Project Setup' }
 ]
 
 const schema = {
@@ -84,10 +85,14 @@ function setEnvironment(testrun) {
             options.folders = ['Two Legged', 'Download Published File'];
             break;
         case 2:
+            options.environment = './assets/environment/upload_linked_files.postman_environment.json';
+            options.folders = ['Two Legged', 'Upload Linked Files'];
+            break;
+        case 3:
             options.environment = './assets/environment/download_linked_files.postman_environment.json';
             options.folders = ['Two Legged', 'Download Linked Files'];
             break;
-        case 3:
+        case 4:
             options.environment = './assets/environment/project_setup.postman_environment.json';
             options.folders = ['Two Legged', 'Project Setup']
             break;
