@@ -1822,8 +1822,6 @@
 									"var objectName = object[1];",
 									"pm.environment.set(\"upload_model_object_name\", objectName);",
 									"",
-									"var fileName = pm.iterationData.get(\"name\");",
-									"pm.environment.set(\"upload_file_name\", fileName);",
 									"var filePath = pm.iterationData.get(\"path\");",
 									"pm.environment.set(\"src_file_path\", filePath);"
 								],
@@ -1843,6 +1841,11 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1852,42 +1855,24 @@
 								"value": "{{x_user_id}}"
 							},
 							{
-								"key": "Content-Disposition",
-								"type": "text",
-								"value": "{{upload_file_name}}"
-							},
-							{
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/octet-stream"
+							},
+							{
+								"key": "Content-Disposition",
+								"value": "attachment; filename=\"{{upload_file_name}}\"",
+								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "description",
-									"value": "Revit models",
-									"type": "text"
-								},
-								{
-									"key": "key",
-									"value": "{{upload_file_name}}",
-									"type": "text"
-								},
-								{
-									"key": "src",
-									"value": "{{src_file_path}}",
-									"type": "text"
-								},
-								{
-									"key": "type",
-									"value": "file",
-									"type": "text"
-								}
-							],
+							"mode": "raw",
+							"raw": "{\n    \"mode\": \"file\",\n    \"file\":\"{{src_file_path}}/{{upload_file_name}}\"\n}",
 							"options": {
-								"formdata": {}
+								"formdata": {},
+								"raw": {
+									"language": "text"
+								}
 							}
 						},
 						"url": {
@@ -1918,12 +1903,87 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create First Version",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "44de0c83-4388-4443-a8a8-89bd8ca3f63c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "dadf3f0a-d9c0-4f6d-a8ab-1009c4fd4d01",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/vnd.api+json"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"items\",\n        \"attributes\": {\n            \"displayName\": \"{{upload_file_name}}\",\n            \"extension\": {\n                \"type\": \"items:autodesk.bim360:File\",\n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"tip\": {\n                \"data\": {\n                    \"type\": \"versions\",\n                    \"id\": \"1\"\n                }\n            },\n            \"parent\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{upload_folder_id}}\"\n                }\n            }\n        }\n    },\n    \"included\": [\n        {\n            \"type\": \"versions\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"{{upload_file_name}}\",\n                \"extension\": {\n                    \"type\": \"versions:autodesk.bim360:File\",\n                    \"version\": \"1.0\"\n                }\n            },\n            \"relationships\": {\n                \"storage\": {\n                    \"data\": {\n                        \"type\": \"objects\",\n                        \"id\": \"{{upload_model_object_id}}\"\n                    }\n                }\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"items"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"type": "string",
+									"value": "{{project_id}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Uploads",
+			"name": "Uploads (Obsolete)",
 			"item": [
 				{
 					"name": "Hubs",

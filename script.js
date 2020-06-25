@@ -87,6 +87,9 @@ function setEnvironment(testrun) {
         case 2:
             options.environment = './assets/environment/upload_linked_files.postman_environment.json';
             options.folders = ['Two Legged', 'Upload Linked Files'];
+            options.insecureFileRead = true;
+            options.iterationCount = 3;
+            options.iterationData = './assets/models/data_files.json';
             break;
         case 3:
             options.environment = './assets/environment/download_linked_files.postman_environment.json';
