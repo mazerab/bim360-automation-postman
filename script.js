@@ -27,7 +27,7 @@ prompt.get(schema, function(err, result) {
     if (err) { throw new Error(err); }
     Object.values(testSuites).forEach(function(value) {
         if (Object.keys(value) == result.testrun) {
-            console.info(`  Starting testrun: ${value[result.testrun]}`);
+            console.info(`  Starting Test Run: ${value[result.testrun]}`);
             const options = setEnvironment(result.testrun);
             runScript(options);
         }
@@ -38,6 +38,9 @@ function runScript(options) {
     newman.run({
         collection: require('./postman_collection.json'),
         environment: require(options.environment),
+        insecureFileRead: options.insecureFileRead,
+        iterationCount: options.iterationCount,
+        iterationData: require(options.iterationData),
         folder: options.folders,
         reporters: 'cli'
     }, function (err) {
