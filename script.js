@@ -5,9 +5,10 @@ const prompt = require('prompt');
 
 const testSuites = [
     { '1': 'Download Published File' },
-    { '2': 'Upload Linked Files' },
-    { '3': 'Download Linked Files' },
-    { '4': 'Project Setup' }
+    { '2': 'Upload Single File' },
+    { '3': 'Upload Linked Files' },
+    { '4': 'Download Linked Files' },
+    { '5': 'Project Setup' }
 ]
 
 const schema = {
@@ -38,9 +39,9 @@ function runScript(options) {
     newman.run({
         collection: require('./postman_collection.json'),
         environment: require(options.environment),
-        insecureFileRead: options.insecureFileRead,
-        iterationCount: options.iterationCount,
-        iterationData: require(options.iterationData),
+        insecureFileRead: ( options.insecureFileRead ? options.insecureFileRead: false ),
+        iterationCount: ( options.iterationCount ? options.iterationData: 1),
+        iterationData: (options.iterationData? require(options.iterationData): ''),
         folder: options.folders,
         reporters: 'cli'
     }, function (err) {
@@ -88,17 +89,21 @@ function setEnvironment(testrun) {
             options.folders = ['Two Legged', 'Download Published File'];
             break;
         case 2:
+            options.environment = './assets/environment/upload_single_file.postman_environment.json';
+            options.folders = ['Two Legged', 'Upload Single File'];
+            break;
+        case 3:
             options.environment = './assets/environment/upload_linked_files.postman_environment.json';
             options.folders = ['Two Legged', 'Upload Linked Files'];
             options.insecureFileRead = true;
             options.iterationCount = 3;
             options.iterationData = './assets/models/data_files.json';
             break;
-        case 3:
+        case 4:
             options.environment = './assets/environment/download_linked_files.postman_environment.json';
             options.folders = ['Two Legged', 'Download Linked Files'];
             break;
-        case 4:
+        case 5:
             options.environment = './assets/environment/project_setup.postman_environment.json';
             options.folders = ['Two Legged', 'Project Setup']
             break;
