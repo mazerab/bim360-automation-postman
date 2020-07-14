@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1ecf69bc-eaf6-4931-8c3d-9ea672b2e659",
+		"_postman_id": "cbfaab8d-f456-47fd-9d1f-29b8cafbfea9",
 		"name": "BIM360 Automation",
 		"description": "A collection to document the Forge APIs used to automate tasks in BIM360 Docs.\n\nIt also defines the bearer token that will be passed to subsequent API requests to Forge. ",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -18,7 +18,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a0254a11-a172-44cf-ab4f-56051540688c",
+										"id": "80c679da-3dc0-45bc-95b1-fdd087e120f3",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -36,7 +36,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "208dce4a-7f3a-4792-9d5e-53f04f3bcd81",
+										"id": "fd1846ae-d083-427b-8ca0-525a6a292f7a",
 										"exec": [
 											""
 										],
@@ -113,7 +113,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7a6a7970-5ba9-46f6-9f26-fde92bdd8bac",
+										"id": "19eede08-7b5f-41fa-918b-fa88c3ae1c3c",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -170,7 +170,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "5b4c5c30-346e-4e45-ad58-8562b124eae4",
+								"id": "8f119041-e947-4a5e-adf3-898011f4ab10",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -180,7 +180,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3d395c0d-ea48-4cbf-b175-aebf8f50ec30",
+								"id": "d6ca13be-1151-4b95-bf38-477b367a1a39",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -200,7 +200,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "94cdc202-48e7-4acd-a6e8-f9e811898183",
+						"id": "11f7a42e-f69a-4fb9-a55b-8d1aa68985ad",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -210,7 +210,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d0bbf416-862e-42fb-9f58-c1b0bb20657a",
+						"id": "6840e2e1-352e-44a7-9ca1-af6a9fe7a9a5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -234,7 +234,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ffb7cbd8-2f23-4f03-aa86-5cb50dab1d93",
+								"id": "5ec5ec71-a604-4fa1-8135-96fc46dc2a8c",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -283,7 +283,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f1b65e14-cdf9-4ad4-809a-0fdcd9d65c74",
+								"id": "6d748c7f-89d7-42b8-b471-9238b444de48",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -326,10 +326,8 @@
 							],
 							"variable": [
 								{
-									"id": "ab14ab9d-d492-41b6-8b25-a4f048a3922b",
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								}
 							]
 						},
@@ -343,7 +341,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "15a22964-8039-42c1-9092-612b2731889f",
+								"id": "4551313e-c48d-4c86-a993-cfdf084d40ec",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -387,16 +385,12 @@
 							],
 							"variable": [
 								{
-									"id": "92de7b3d-2d5f-498a-875a-3e3dd5bb5606",
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								},
 								{
-									"id": "a8377287-57cd-411a-98c2-7abba5aaae98",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								}
 							]
 						},
@@ -410,7 +404,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cd5312c1-6c0a-43d2-8793-d02ad8b062d8",
+								"id": "4157038f-2340-4e0a-9856-4f32fb16cac8",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -455,16 +449,12 @@
 							],
 							"variable": [
 								{
-									"id": "d0de80ef-20b0-4dcc-9f64-b24c09d874b8",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								},
 								{
-									"id": "02484f5a-479e-4f05-95cc-c28f97619e8b",
 									"key": "folder_id",
-									"value": "{{project_files_folder_id}}",
-									"type": "string"
+									"value": "{{project_files_folder_id}}"
 								}
 							]
 						},
@@ -478,7 +468,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "864b27d1-3e99-4ccf-a3ba-7b623b81d1f1",
+								"id": "c170d5ee-c8f4-4d1e-8dc0-9085d0244d86",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -524,16 +514,12 @@
 							],
 							"variable": [
 								{
-									"id": "1505df72-91ab-4409-be32-111706d5b408",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								},
 								{
-									"id": "cae6ebb5-0afc-49ae-991c-4b6fddcdbbdc",
 									"key": "folder_id",
-									"value": "{{arch_folder_id}}",
-									"type": "string"
+									"value": "{{arch_folder_id}}"
 								}
 							]
 						},
@@ -547,7 +533,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "126f0560-215e-4349-a997-4ba80e32ea4e",
+								"id": "990959fd-323e-48ce-ba9d-50bc9636c4ef",
 								"exec": [
 									"var objectId = pm.environment.get(\"arch_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -560,7 +546,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "472c06fe-23ae-440d-9a11-d72018c5e610",
+								"id": "4d150999-552c-4b31-ab84-42b2e56a5555",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -594,16 +580,12 @@
 							],
 							"variable": [
 								{
-									"id": "72295429-a992-408e-ab5c-9c42a2c54077",
 									"key": "bucket_key",
-									"value": "{{bucket_key}}",
-									"type": "string"
+									"value": "{{bucket_key}}"
 								},
 								{
-									"id": "0434db8a-df95-4219-9a12-a856f3c2a203",
 									"key": "object_name",
-									"value": "{{arch_model_object_name}}",
-									"type": "string"
+									"value": "{{arch_model_object_name}}"
 								}
 							]
 						},
@@ -617,7 +599,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "9ab86f1e-8d98-4ed0-984c-f9b0a929d83d",
+								"id": "af00c7b2-a338-4279-af43-0910dacfaa79",
 								"exec": [
 									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"arch_model_version_id\"));",
 									"postman.setEnvironmentVariable(\"encoded_arch_model_version_id\", encoded);"
@@ -628,7 +610,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3480b839-83b0-4d23-a3ef-48017bbbaa6d",
+								"id": "cb88f64c-6c7c-4b75-850d-4b79078736a7",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -684,16 +666,12 @@
 							],
 							"variable": [
 								{
-									"id": "76cd7fe6-f0f6-42a2-ae60-e74cfde7846a",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								},
 								{
-									"id": "987b77b1-5028-47e4-8435-9e32b887219d",
 									"key": "version_id",
-									"value": "{{encoded_arch_model_version_id}}",
-									"type": "string"
+									"value": "{{encoded_arch_model_version_id}}"
 								}
 							]
 						},
@@ -707,7 +685,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "3e2f569d-8731-4ce8-9ed9-c492bd2dd44b",
+								"id": "820f6815-7e84-4464-af97-708574eb6e3e",
 								"exec": [
 									"var xrefs = JSON.parse(pm.variables.get(\"xrefs\"));",
 									"var index = parseInt(pm.variables.get(\"xref_index\"));",
@@ -719,7 +697,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dabd12c7-f79f-49d6-aefc-20dd06c5775c",
+								"id": "c9d9b549-531b-48ce-b173-8093fdfe0e6f",
 								"exec": [
 									"// If we are *not* on the last xref in the list,",
 									"// increment the index and set the next request ",
@@ -776,85 +754,15 @@
 							"variable": [
 								{
 									"key": "bucket_key",
-									"value": "{{bucket_key}}",
-									"type": "string"
+									"value": "{{bucket_key}}"
 								},
 								{
 									"key": "object_name",
-									"value": "{{xref_object_name}}",
-									"type": "string"
+									"value": "{{xref_object_name}}"
 								}
 							]
 						},
 						"description": "Initiate a download of a file.\n\nWe are passing into the request additional custom headers xrefs and xref_index. These will be read by the Newman script to determine filenames of the downloaded linked files."
-					},
-					"response": []
-				},
-				{
-					"name": "Project Files Folder Contents",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "f88bfabf-a2f4-46f9-8290-0a0280078a28",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"upload_folder_id and upload_folder_name should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"upload_folder_id\")).to.equal(true);",
-									"    pm.expect(pm.environment.has(\"upload_folder_name\")).to.equal(true);",
-									"    var jsonData = pm.response.json();",
-									"    jsonData.data.some(function(folder) {",
-									"        pm.environment.set(\"upload_folder_id\", folder.id);",
-									"        return folder.attributes.name === pm.environment.get(\"upload_folder_name\");",
-									"    });",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"folders",
-								":folder_id",
-								"contents"
-							],
-							"variable": [
-								{
-									"id": "d0de80ef-20b0-4dcc-9f64-b24c09d874b8",
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								},
-								{
-									"id": "02484f5a-479e-4f05-95cc-c28f97619e8b",
-									"key": "folder_id",
-									"value": "{{project_files_folder_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Retrieves the Project Files folder contents."
 					},
 					"response": []
 				}
@@ -870,7 +778,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "89f18cdc-4a7d-4616-9dd4-8f217e05504d",
+								"id": "19e0b93e-f3d8-4f99-8433-3c6de2f8e518",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -919,7 +827,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2488543f-9637-406a-9055-6420fa926ec6",
+								"id": "626143a3-e452-4c4d-aade-59fc1cd69cb8",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -963,8 +871,7 @@
 							"variable": [
 								{
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								}
 							]
 						},
@@ -978,7 +885,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0aa635d0-4783-4457-a763-c9cb8f761e45",
+								"id": "c136d284-26e9-488f-a21b-ced22b459237",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1023,13 +930,11 @@
 							"variable": [
 								{
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								},
 								{
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								}
 							]
 						},
@@ -1043,7 +948,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dc758f71-4352-40ae-9489-275440ea19b3",
+								"id": "cf623177-2d30-4667-99d8-4bade9e5767e",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1089,13 +994,11 @@
 							"variable": [
 								{
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								},
 								{
 									"key": "folder_id",
-									"value": "{{project_files_folder_id}}",
-									"type": "string"
+									"value": "{{project_files_folder_id}}"
 								}
 							]
 						},
@@ -1109,7 +1012,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6641c064-f775-4451-8c45-2105dd898f6f",
+								"id": "f626933c-d87d-4ee4-9da3-e496be6bd265",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1156,13 +1059,11 @@
 							"variable": [
 								{
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								},
 								{
 									"key": "folder_id",
-									"value": "{{arch_folder_id}}",
-									"type": "string"
+									"value": "{{arch_folder_id}}"
 								}
 							]
 						},
@@ -1176,7 +1077,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "5534012c-6351-4fbb-b617-5ce9c7ca3c2b",
+								"id": "77b427e0-4963-475f-9415-747a848ed884",
 								"exec": [
 									"var objectId = pm.environment.get(\"arch_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -1189,7 +1090,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e114694e-4699-47f6-a464-f29231443b07",
+								"id": "dd5be2ad-1166-4efd-9cbd-7ff5fc85b2ff",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1224,13 +1125,11 @@
 							"variable": [
 								{
 									"key": "bucket_key",
-									"value": "{{bucket_key}}",
-									"type": "string"
+									"value": "{{bucket_key}}"
 								},
 								{
 									"key": "object_name",
-									"value": "{{arch_model_object_name}}",
-									"type": "string"
+									"value": "{{arch_model_object_name}}"
 								}
 							]
 						},
@@ -1244,7 +1143,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "446c59c6-806f-4875-9c91-a050e087bc5e",
+						"id": "312fbaf5-2895-4c8d-a7f1-a4db652eca41",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1254,7 +1153,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "dbd0e827-7325-40dc-aaaa-44d711899db3",
+						"id": "e460e7b5-99bb-494e-9004-e31880e9be84",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1273,7 +1172,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7116b9b2-7bfb-4ee1-ac75-5f41aebea244",
+								"id": "5ec36f68-a548-4d79-8537-3e3ffe054e77",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1322,7 +1221,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2874c9a2-8fe7-45bd-8b4a-cb3ea0c17d7d",
+								"id": "8d1493d6-4ea9-4ea8-bfbc-dd88bd6e2de4",
 								"exec": [
 									"var account_id = pm.environment.get(\"hub_id\");",
 									"account_id = account_id.replace(\"b.\", \"\");",
@@ -1334,7 +1233,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fee69df9-a27c-4681-b9a1-746b75568488",
+								"id": "8a31c93a-b702-426f-845b-e2b84ccc0c53",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1372,8 +1271,7 @@
 							"variable": [
 								{
 									"key": "account_id",
-									"value": "{{account_id}}",
-									"type": "string"
+									"value": "{{account_id}}"
 								}
 							]
 						}
@@ -1386,7 +1284,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "5dddb608-973f-40c1-93cd-5540296bd084",
+								"id": "00e563f2-ace7-4209-a232-babb91ab101a",
 								"exec": [
 									"var account_id = pm.environment.get(\"hub_id\");",
 									"account_id = account_id.replace(\"b.\", \"\");",
@@ -1435,10 +1333,16 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0e1d1a1f-422a-4b47-a622-98ea46de5cb1",
+								"id": "38ab0eca-93f2-42ea-97cd-425063ff4a5d",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"project_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"project_id\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"project_id\", jsonData.id);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1476,8 +1380,118 @@
 							"variable": [
 								{
 									"key": "account_id",
-									"value": "{{account_id}}",
-									"type": "string"
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5dd41cd4-2b4c-4922-ab56-2e44dd46118a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"company_id and company_name should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"company_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"company_name\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.some(function(company) {",
+									"        pm.environment.set(\"company_id\", company.id);",
+									"        return company.name === pm.environment.get(\"company_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hq/v1/accounts/:account_id/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hq",
+								"v1",
+								"accounts",
+								":account_id",
+								"companies"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{hub_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Project Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8ccb3ead-62ac-4982-a77d-9d11d14c2ef5",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"service_type\": \"{{service_type}}\",\n    \"company_id\":\"{{company_id}}\",\n    \"email\":\"bastien.mazeran@autodesk.com\",\n    \"nickname\":\"Bastien\",\n    \"first_name\":\"Bastien\",\n    \"last_name\":\"Mazeran\",\n    \"role\": \"project_admin\",\n    \"image_url\": \"http://static-dc.autodesk.net/etc/designs/v201412151200/autodesk/adsk-design/images/autodesk_header_logo_140x23.png\",\n    \"address_line_1\": \"The Fifth Avenue\",\n    \"address_line_2\": \"#301\",\n    \"city\": \"New York\",\n    \"postal_code\": \"10011\",\n    \"state_or_province\": \"New York\",\n    \"country\": \"United States\",\n    \"phone\": \"(634)329-2353\",\n    \"company\": \"Autodesk\",\n    \"job_title\": \"Software Developer\",\n    \"industry\": \"IT\",\n    \"about_me\": \"Nothing here\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/hq/v1/accounts/:account_id/projects/:project_id/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hq",
+								"v1",
+								"accounts",
+								":account_id",
+								"projects",
+								":project_id",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{hub_id}}"
+								},
+								{
+									"key": "project_id",
+									"value": "{{project_id}}"
 								}
 							]
 						}
@@ -1488,7 +1502,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Upload Linked Files",
+			"name": "Upload Linked Files (Beta)",
 			"item": [
 				{
 					"name": "Hubs",
@@ -1496,7 +1510,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4f8e4a31-f451-418b-b8e2-6fca24950782",
+								"id": "41fb75f1-d3da-4476-a412-3e8a10fc2784",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1545,7 +1559,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f61cecd9-7045-4707-9a39-c0e68798fb76",
+								"id": "91945f35-95ad-4797-8273-fb3bf3aa1114",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1588,10 +1602,8 @@
 							],
 							"variable": [
 								{
-									"id": "ab14ab9d-d492-41b6-8b25-a4f048a3922b",
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								}
 							]
 						},
@@ -1605,7 +1617,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e7ed0245-7f51-486e-ae2e-2060fa3d6be5",
+								"id": "7dcf709b-f69b-42fb-8b73-5ce3069be6a2",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1649,16 +1661,12 @@
 							],
 							"variable": [
 								{
-									"id": "92de7b3d-2d5f-498a-875a-3e3dd5bb5606",
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								},
 								{
-									"id": "a8377287-57cd-411a-98c2-7abba5aaae98",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								}
 							]
 						},
@@ -1672,7 +1680,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f88bfabf-a2f4-46f9-8290-0a0280078a28",
+								"id": "f4a39e92-e8ad-4147-bb79-11e75f1a8c31",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1717,16 +1725,12 @@
 							],
 							"variable": [
 								{
-									"id": "d0de80ef-20b0-4dcc-9f64-b24c09d874b8",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								},
 								{
-									"id": "02484f5a-479e-4f05-95cc-c28f97619e8b",
 									"key": "folder_id",
-									"value": "{{project_files_folder_id}}",
-									"type": "string"
+									"value": "{{project_files_folder_id}}"
 								}
 							]
 						},
@@ -1740,7 +1744,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5afbd8fc-5f4f-485e-ab8c-2de0dfe1d305",
+								"id": "1238ae42-2f37-4553-a935-d2315111f326",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -1754,7 +1758,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "c632f392-ee12-4f7e-93b6-4ed1f8d7b41f",
+								"id": "d32406a9-b169-4890-ac94-d85092d4f62f",
 								"exec": [
 									"var file_name = pm.iterationData.get(\"name\");",
 									"pm.environment.set(\"upload_file_name\", file_name);"
@@ -1798,10 +1802,8 @@
 							],
 							"variable": [
 								{
-									"id": "2d9e74be-86c6-4904-8600-180c8fdc31e2",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								}
 							]
 						},
@@ -1815,7 +1817,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8518233b-e1bf-4f29-acd4-05e787d50929",
+								"id": "53466b0d-0d0f-4172-8c76-0d9629367c21",
 								"exec": [
 									"var objectId = pm.environment.get(\"upload_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -1831,7 +1833,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "20b6155f-a4d4-434a-bf60-9e73a0fb3612",
+								"id": "26686339-7aa6-4c10-9119-4d07287ea032",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1858,18 +1860,12 @@
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/octet-stream"
-							},
-							{
-								"key": "Content-Disposition",
-								"value": "attachment; filename=\"{{upload_file_name}}\"",
-								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"mode\": \"file\",\n    \"file\":\"{{src_file_path}}/{{upload_file_name}}\"\n}",
 							"options": {
-								"formdata": {},
 								"raw": {
 									"language": "text"
 								}
@@ -1891,13 +1887,11 @@
 							"variable": [
 								{
 									"key": "bucket_key",
-									"value": "{{bucket_key}}",
-									"type": "string"
+									"value": "{{bucket_key}}"
 								},
 								{
 									"key": "object_name",
-									"value": "{{upload_model_object_name}}",
-									"type": "string"
+									"value": "{{upload_model_object_name}}"
 								}
 							]
 						}
@@ -1910,7 +1904,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "44de0c83-4388-4443-a8a8-89bd8ca3f63c",
+								"id": "4610b6ee-4c19-497b-bb5f-e5dbc9c81bba",
 								"exec": [
 									""
 								],
@@ -1920,7 +1914,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dadf3f0a-d9c0-4f6d-a8ab-1009c4fd4d01",
+								"id": "8372763e-f35f-4aa1-ae37-b18c267c0e23",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -1971,7 +1965,6 @@
 							"variable": [
 								{
 									"key": "project_id",
-									"type": "string",
 									"value": "{{project_id}}"
 								}
 							]
@@ -1991,7 +1984,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "59eec719-70ac-494d-8e03-149a358e7a68",
+								"id": "bd07c759-d8b2-41e2-92fe-7d3d121a0da5",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2040,7 +2033,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9efea58a-16a1-472b-8677-8a0f44b05b87",
+								"id": "05a2cee3-b0ea-43e6-9d60-d0c3b587042e",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2083,10 +2076,8 @@
 							],
 							"variable": [
 								{
-									"id": "ab14ab9d-d492-41b6-8b25-a4f048a3922b",
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								}
 							]
 						},
@@ -2100,7 +2091,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7371044b-b069-446c-819f-aa7652f0e137",
+								"id": "55b47253-bd3f-4e35-a380-69f133eb05a9",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2144,16 +2135,12 @@
 							],
 							"variable": [
 								{
-									"id": "92de7b3d-2d5f-498a-875a-3e3dd5bb5606",
 									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
+									"value": "{{hub_id}}"
 								},
 								{
-									"id": "a8377287-57cd-411a-98c2-7abba5aaae98",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								}
 							]
 						},
@@ -2167,7 +2154,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a6b5eb1f-33c2-44a5-b39c-cba8ba2bce31",
+								"id": "a668241e-17dd-4ed5-a59e-52270622efe0",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2212,16 +2199,12 @@
 							],
 							"variable": [
 								{
-									"id": "d0de80ef-20b0-4dcc-9f64-b24c09d874b8",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								},
 								{
-									"id": "02484f5a-479e-4f05-95cc-c28f97619e8b",
 									"key": "folder_id",
-									"value": "{{project_files_folder_id}}",
-									"type": "string"
+									"value": "{{project_files_folder_id}}"
 								}
 							]
 						},
@@ -2235,7 +2218,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a60b73ff-d76d-4d42-aa61-022e34ed98d9",
+								"id": "9fa163ce-812b-40bc-a5e4-a863a2e17973",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -2249,7 +2232,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "0b4c89bb-356e-4549-b425-727c2ef16bee",
+								"id": "5e1536a2-02b5-46a1-9a97-f57e4f5718e3",
 								"exec": [
 									""
 								],
@@ -2292,10 +2275,8 @@
 							],
 							"variable": [
 								{
-									"id": "2d9e74be-86c6-4904-8600-180c8fdc31e2",
 									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
+									"value": "{{project_id}}"
 								}
 							]
 						},
@@ -2309,7 +2290,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "19a011b3-c5f6-4729-b6a4-ad9ed8de6ee2",
+								"id": "922bfaa7-9101-44cf-810c-b88a3c10e0bf",
 								"exec": [
 									"var objectId = pm.environment.get(\"upload_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -2322,7 +2303,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9128f840-0383-4b86-91ed-7a40c91095ec",
+								"id": "d74e5d10-5813-4304-9d80-b3396049bcb4",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2341,11 +2322,6 @@
 						"method": "PUT",
 						"header": [
 							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							},
-							{
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/octet-stream"
@@ -2362,10 +2338,7 @@
 								"src": "/Users/mazerab/Repos/bim360-automation-postman/assets/models/visualization_-_condominium_with_skylight.dwg"
 							},
 							"options": {
-								"formdata": {},
-								"raw": {
-									"language": "text"
-								}
+								"file": {}
 							}
 						},
 						"url": {
@@ -2384,13 +2357,11 @@
 							"variable": [
 								{
 									"key": "bucket_key",
-									"value": "{{bucket_key}}",
-									"type": "string"
+									"value": "{{bucket_key}}"
 								},
 								{
 									"key": "object_name",
-									"value": "{{upload_model_object_name}}",
-									"type": "string"
+									"value": "{{upload_model_object_name}}"
 								}
 							]
 						}
@@ -2403,7 +2374,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "48484a08-3c7a-402c-8f89-46b2c0004775",
+								"id": "795d25f9-90b1-444f-b025-b2bc817016d7",
 								"exec": [
 									""
 								],
@@ -2413,7 +2384,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "afe2ee2f-199d-4ed3-a2fe-0267b71afa7d",
+								"id": "4a716433-0b44-4d8e-947d-519679feb17b",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -2464,832 +2435,12 @@
 							"variable": [
 								{
 									"key": "project_id",
-									"type": "string",
 									"value": "{{project_id}}"
 								}
 							]
 						}
 					},
 					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Uploads (Obsolete)",
-			"item": [
-				{
-					"name": "Hubs",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "89f18cdc-4a7d-4616-9dd4-8f217e05504d",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/project/v1/hubs",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"project",
-								"v1",
-								"hubs"
-							]
-						},
-						"description": "Retrieves the hubs."
-					},
-					"response": []
-				},
-				{
-					"name": "Hub",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "e9288288-fec4-4288-87b9-2efee8fed0a4",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/project/v1/hubs/:hub_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"project",
-								"v1",
-								"hubs",
-								":hub_id"
-							],
-							"variable": [
-								{
-									"id": "9f74ce8e-8ce3-47dd-aae8-21424b1943d8",
-									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Retrieves the metadata of a specific hub."
-					},
-					"response": []
-				},
-				{
-					"name": "Hub Projects",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "2488543f-9637-406a-9055-6420fa926ec6",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-user-id",
-								"value": "{{x_user_id}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"project",
-								"v1",
-								"hubs",
-								":hub_id",
-								"projects"
-							],
-							"variable": [
-								{
-									"id": "62bf7043-39df-4849-ac37-6a0ebe6f55b1",
-									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Retrieves the hub projects."
-					},
-					"response": []
-				},
-				{
-					"name": "Project Top Folders",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "0aa635d0-4783-4457-a763-c9cb8f761e45",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-user-id",
-								"value": "{{x_user_id}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"project",
-								"v1",
-								"hubs",
-								":hub_id",
-								"projects",
-								":project_id",
-								"topFolders"
-							],
-							"variable": [
-								{
-									"id": "c5c9ebf1-252a-4b2e-b85b-9029b0f05e96",
-									"key": "hub_id",
-									"value": "{{hub_id}}",
-									"type": "string"
-								},
-								{
-									"id": "42580f55-7507-433d-aa07-ebbc719d8955",
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Retrieves the project top folders."
-					},
-					"response": []
-				},
-				{
-					"name": "Project Files Folder Contents",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "dc758f71-4352-40ae-9489-275440ea19b3",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"mep_folder_id should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"mep_folder_id\")).to.equal(true);",
-									"    var jsonData = pm.response.json();",
-									"    jsonData.data.some(function(folder) {",
-									"        pm.environment.set(\"mep_folder_id\", folder.id);",
-									"        return folder.attributes.name === 'MEP';",
-									"    });",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"folders",
-								":folder_id",
-								"contents"
-							],
-							"variable": [
-								{
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								},
-								{
-									"key": "folder_id",
-									"value": "{{project_files_folder_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Retrieves the Project Files folders."
-					},
-					"response": []
-				},
-				{
-					"name": "Project Folder Contents",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "5ea6730b-a772-485b-982d-a077c7b0a4f2",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"arch_model_object_id should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"arch_model_object_id\")).to.equal(true);",
-									"    var jsonData = pm.response.json();",
-									"    jsonData.included.some(function(version) {",
-									"        pm.environment.set(\"arch_model_object_id\", version.relationships.storage.data.id);",
-									"        pm.environment.set(\"arch_model_version_id\", version.id);",
-									"        return version.attributes.name === 'Arch-01.rvt';",
-									"    });",
-									"});",
-									"",
-									"pm.test(\"version urn links should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"version_urn_arch\")).to.equal(true);",
-									"    pm.expect(pm.environment.has(\"version_urn_ffe\")).to.equal(true);",
-									"    pm.expect(pm.environment.has(\"version_urn_struct\")).to.equal(true);",
-									"    var jsonData = pm.response.json();",
-									"    jsonData.included.some(function(version) {",
-									"        if (version.attributes.name === 'Arch-01.rvt') {",
-									"            pm.environment.set(\"version_urn_arch\", version.id);",
-									"        }",
-									"        if (version.attributes.name === 'FFE-01.rvt') {",
-									"            pm.environment.set(\"version_urn_ffe\", version.id);",
-									"        }",
-									"        if (version.attributes.name === 'Struct-01.rvt') {",
-									"            pm.environment.set(\"version_urn_struct\", version.id);",
-									"        }",
-									"    });",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-user-id",
-								"value": "{{x_user_id}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"folders",
-								":folder_id",
-								"contents"
-							],
-							"variable": [
-								{
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								},
-								{
-									"key": "folder_id",
-									"value": "{{arch_folder_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Retrieves a folder contents."
-					},
-					"response": []
-				},
-				{
-					"name": "Create Storage Location (First Version)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "baa4fdc1-7a75-499b-881d-6a8b7d71c762",
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"    var jsonData = pm.response.json();",
-									"    pm.environment.set(\"mep_model_object_id\", jsonData.data.id);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							},
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/vnd.api+json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"objects\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\"\n        },\n        \"relationships\": {\n            \"target\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{mep_folder_id}}\"\n                }\n            }\n        }\n    }\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/storage",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"storage"
-							],
-							"variable": [
-								{
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Creates a new storage location to upload a new file to."
-					},
-					"response": []
-				},
-				{
-					"name": "Upload File (First Version)",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "6b657e12-f3df-4879-8d04-a5ba0a3717fd",
-								"exec": [
-									"var objectId = pm.environment.get(\"mep_model_object_id\");",
-									"var object = objectId.split(\"/\");",
-									"var objectName = object[1];",
-									"pm.environment.set(\"mep_model_object_name\", objectName);"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "6841dd14-80d0-4923-abac-2841f28e4fb3",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							},
-							{
-								"key": "Content-Disposition",
-								"type": "text",
-								"value": "{{mep_file_name}}"
-							},
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/octet-stream"
-							}
-						],
-						"body": {
-							"mode": "file",
-							"file": {
-								"src": "/Users/mazerab/Downloads/Martins Test Project/MEP-01.rvt"
-							},
-							"options": {
-								"file": {}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								":bucket_key",
-								"objects",
-								":object_name"
-							],
-							"variable": [
-								{
-									"key": "bucket_key",
-									"value": "{{bucket_key}}",
-									"type": "string"
-								},
-								{
-									"key": "object_name",
-									"value": "{{mep_model_object_name}}",
-									"type": "string"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create First Version",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "2a7e539c-233e-47cc-b375-3e84d3cbf4f9",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "901feaba-14cf-46c7-b0b6-ed2e136dd0b6",
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});",
-									"",
-									"pm.test(\"mep_model_item_id should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"mep_model_item_id\")).to.equal(true);",
-									"    var jsonData = pm.response.json();",
-									"    pm.environment.set(\"mep_model_item_id\", jsonData.data.id);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"content-type": true
-						}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/vnd.api+json"
-							},
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"items\",\n        \"attributes\": {\n            \"displayName\": \"{{mep_file_name}}\",\n            \"extension\": {\n                \"type\": \"items:autodesk.bim360:File\",\n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"tip\": {\n                \"data\": {\n                    \"type\": \"versions\",\n                    \"id\": \"1\"\n                }\n            },\n            \"parent\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{mep_folder_id}}\"\n                }\n            }\n        }\n    },\n    \"included\": [\n        {\n            \"type\": \"versions\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"{{mep_file_name}}\",\n                \"extension\": {\n                    \"type\": \"versions:autodesk.bim360:File\",\n                    \"version\": \"1.0\"\n                }\n            },\n            \"relationships\": {\n                \"storage\": {\n                    \"data\": {\n                        \"type\": \"objects\",\n                        \"id\": \"{{mep_model_object_id}}\"\n                    }\n                }\n            }\n        }\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/items",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"items"
-							],
-							"variable": [
-								{
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Storage Location (Second Version)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "b207f326-510b-43cf-8f8d-74b719d81191",
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"    var jsonData = pm.response.json();",
-									"    pm.environment.set(\"mep_model_v2_object_id\", jsonData.data.id);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							},
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/vnd.api+json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"objects\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\"\n        },\n        \"relationships\": {\n            \"target\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{mep_folder_id}}\"\n                }\n            }\n        }\n    }\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/storage",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"storage"
-							],
-							"variable": [
-								{
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Creates a new storage location to upload a new file to."
-					},
-					"response": []
-				},
-				{
-					"name": "Upload File (Second Version)",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "cc4a92c4-2137-4845-9fab-d4c8a2b5043d",
-								"exec": [
-									"var objectId = pm.environment.get(\"mep_model_v2_object_id\");",
-									"var object = objectId.split(\"/\");",
-									"var objectName = object[1];",
-									"pm.environment.set(\"mep_model_v2_object_name\", objectName);"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "8e3d1816-605e-4f95-9478-354ffde1998c",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							},
-							{
-								"key": "Content-Disposition",
-								"type": "text",
-								"value": "{{mep_file_name}}"
-							},
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/octet-stream"
-							}
-						],
-						"body": {
-							"mode": "file",
-							"file": {
-								"src": "/Users/mazerab/Downloads/Martins Test Project/MEP-01.rvt"
-							},
-							"options": {
-								"file": {}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								":bucket_key",
-								"objects",
-								":object_name"
-							],
-							"variable": [
-								{
-									"key": "bucket_key",
-									"value": "{{bucket_key}}",
-									"type": "string"
-								},
-								{
-									"key": "object_name",
-									"value": "{{mep_model_v2_object_name}}",
-									"type": "string"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Second Version With Refs",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "74dcf2f4-576b-489d-88be-6cfb2dfe0cf1",
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
-									"    pm.response.to.have.status(201);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "29081d2a-baa5-4ba1-b28e-e9929cc436b8",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/vnd.api+json"
-							},
-							{
-								"key": "x-user-id",
-								"type": "text",
-								"value": "{{x_user_id}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\" \n    },\n    \"data\": {\n        \"type\": \"versions\",\n        \"attributes\": {\n            \"name\": \"{{mep_file_name}}\",\n            \"extension\": { \n                \"type\": \"versions:autodesk.bim360:File\", \n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"item\": { \n                \"data\": { \n                    \"type\": \"items\", \n                    \"id\": \"{{mep_model_item_id}}\"\n                }\n            },\n            \"storage\": { \n                \"data\": { \n                    \"type\": \"objects\",\n                    \"id\": \"{{mep_model_v2_object_id}}\"\n                }\n            },\n            \"refs\": {\n                \"data\": [\n                    {\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_arch}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_ffe}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    },{\n                        \"type\": \"versions\",\n                        \"id\": \"{{version_urn_struct}}\",\n                        \"meta\": {\n                            \"refType\": \"xrefs\",\n                            \"direction\": \"from\",\n                            \"extension\": {\n                                \"type\": \"xrefs:autodesk.core:Xref\",\n                                \"version\": \"1.1\",\n                                \"data\": {\n                                    \"nestedType\": \"overlay\"\n                                }\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    }\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/data/v1/projects/:project_id/versions",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"data",
-								"v1",
-								"projects",
-								":project_id",
-								"versions"
-							],
-							"variable": [
-								{
-									"key": "project_id",
-									"value": "{{project_id}}",
-									"type": "string"
-								}
-							]
-						},
-						"description": "This endpoint creates a new version with relationships refs included.\n\nThis method is not preferred, one should use the new copyFrom feature instead."
-					},
-					"response": []
-				}
-			],
-			"description": "Collection of endpoints needed to successfully upload a file to BIM360 Docs.",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "75fe2d90-41a0-475b-806e-464f2c496b99",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "dc15f092-93a8-4b99-ac9a-e07f678b6db8",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -3309,7 +2460,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d2d90eb1-88f0-4824-9d7f-f01d66b38637",
+				"id": "abe937c6-eae4-4887-8535-60db7cb0e6e8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3319,7 +2470,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7eb5e263-3ab3-4bc2-8345-0c565974ba5b",
+				"id": "d959d05e-7a7d-4117-98e9-2ff24372f910",
 				"type": "text/javascript",
 				"exec": [
 					""
