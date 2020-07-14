@@ -1,5 +1,5 @@
 const async = require('async');
-const { DataManagementClient } = require('forge-server-utils');
+const { DataManagementClient, BIM360Client } = require('forge-server-utils');
 const fs = require('fs');
 const newman = require('newman');
 const path = require('path');
@@ -45,17 +45,19 @@ prompt.get(schema, function(err, result) {
 
 async function nodeUploadFile(file, options, callback) {
     try {
+        const bim = new BIM360Client({ client_id: options.client_id, client_secret: options.client_secret});
+        const storage = await bim.createStorageLocation(options.project_id, path.basename(file), 'folders', options.folder_id, options.x_user_id);
         const data = new DataManagementClient({ client_id: options.client_id, client_secret: options.client_secret });
         const readFile = util.promisify(fs.readFile);
         const buffer = await readFile(file);
-        const upload = await data.uploadObject(options.bucket_key, path.basename(file), 'application/octet-stream', buffer);
-        console.info(`upload: ${JSON.stringify(upload)}`);
+        await data.uploadObject(options.bucket_key, path.basename(storage.id), 'application/octet-stream', buffer);
+        await bim.createVersion(options.project_id, path.basename(file), options.folder_id, storage.id);
     } catch (error) {
         console.error(error);
     }
 }
 
-function nodeUploadLinkedFiles() {
+async function nodeUploadLinkedFiles() {
     try {
         const dataFilesJson = JSON.parse(fs.readFileSync('./assets/models/data_files.json', 'utf8'));
         const files = dataFilesJson.map(function(file) {
@@ -77,6 +79,18 @@ function nodeUploadLinkedFiles() {
                 case 'client_secret':
                     options.client_secret = value['value'];
                     break;
+                case 'hub_name':
+                    options.hub_name = value['value'];
+                    break;
+                case 'project_name':
+                    options.project_name = value['value'];
+                    break;
+                case 'scope':
+                    options.scope = value['value'];
+                    break;
+                case 'upload_folder_name':
+                    options.upload_folder_name = value['value'];
+                    break;
                 case 'x_user_id':
                     options.x_user_id = value['value'];
                     break;
@@ -84,7 +98,27 @@ function nodeUploadLinkedFiles() {
                     break;
             }
         });
-        console.info(`options: ${JSON.stringify(options)}`);
+        const bim = new BIM360Client({ client_id: options.client_id, client_secret: options.client_secret});
+        const hubs = await bim.listHubs(options.x_user_id);
+        const account = hubs.filter(function(hub) {
+            return hub.name === options.hub_name;
+        });
+        options.hub_id = account[0].id;
+        const projects = await bim.listProjects(options.hub_id, options.x_user_id);
+        const project = projects.filter(function(hubProject) {
+            return hubProject.name === options.project_name;
+        });
+        options.project_id = project[0].id;
+        const topFolders = await bim.listTopFolders(options.hub_id, options.project_id, options.x_user_id);
+        const topFolder = topFolders.filter(function(projectFolder) {
+            return projectFolder.name === 'Project Files';
+        });
+        options.top_folder_id = topFolder[0].id;
+        const folders = await bim.listContents(options.project_id, options.top_folder_id, options.x_user_id);
+        const folder = folders.filter(function (subFolder) {
+            return subFolder.name === options.upload_folder_name;
+        });
+        options.folder_id = folder[0].id;
         const calls = [];
         files.forEach(function(file) {
             calls.push(function(callback) {
@@ -97,12 +131,12 @@ function nodeUploadLinkedFiles() {
                 });
             });
         });
-        async.parallel(calls, function(err, result) {
+        async.parallel(calls, function(err, results) {
             if (err) {
                 console.error(err);
                 return console.error(err);
             }
-            console.info(result);
+            console.info(results);
         });
     } catch (error) {
         console.error(error);
