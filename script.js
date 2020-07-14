@@ -51,8 +51,8 @@ async function nodeUploadFile(file, options, callback) {
         const readFile = util.promisify(fs.readFile);
         const buffer = await readFile(file);
         await data.uploadObject(options.bucket_key, path.basename(storage.id), 'application/octet-stream', buffer);
-        await bim.createVersion(options.project_id, path.basename(file), options.folder_id, storage.id);
-        callback(null, path.basename(file));
+        const version = await bim.createVersion(options.project_id, path.basename(file), options.folder_id, storage.id);
+        callback(null, { name: path.basename(file), urn: version.id });
     } catch (error) {
         console.error(error);
     }
