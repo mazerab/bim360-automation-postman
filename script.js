@@ -1,4 +1,5 @@
 const newman = require('newman');
+const fs = require('fs');
 const path = require('path');
 const prompt = require('prompt');
 
