@@ -63,23 +63,23 @@ To successfully download files from BIM360 Docs, one cannot use Postman as it do
 
 ##### Downloading a Revit Published File
 
-[Download Revit Published File Documentation](docs/download_published_file)
+[Download Revit Published File Documentation](download_published_file)
 
 ##### Downloading Revit Linked Files
 
-[Download Revit Linked Files Documentation](docs/download_linked_files)
+[Download Revit Linked Files Documentation](download_linked_files)
 
 ##### Uploading Single File
 
-[Upload Single File Documentation](docs/upload_single_file)
+[Upload Single File Documentation](upload_single_file)
 
 ##### Uploading Revit Files
 
-[Upload Revit Linked Files Documentation](docs/upload_linked_files)
+[Upload Revit Linked Files Documentation](upload_linked_files)
 
 #### BIM360 Docs Project Setup Automation
 
-[Project Setup Documentation](docs/project_setup)
+[Project Setup Documentation](project_setup)
 
 ### Generating the Postman Collection Docs
 
