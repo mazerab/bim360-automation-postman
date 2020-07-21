@@ -8,7 +8,8 @@ const testSuites = [
     { '2': 'Upload Single File (Newman)' },
     { '3': 'Upload Linked Files (Newman)' },
     { '4': 'Download Linked Files (Newman)' },
-    { '5': 'Project Setup (Newman)' }
+    { '5': 'Project Setup (Newman)' },
+    { '6': 'Overwrite Linked Files (Newman)' }
 ]
 
 const schema = {
@@ -107,6 +108,13 @@ function setEnvironment(testrun) {
         case 5:
             options.environment = './assets/environment/project_setup.postman_environment.json';
             options.folders = ['Two Legged', 'Project Setup']
+            break;
+        case 6:
+            options.environment = './assets/environment/overwrite_linked_files.postman_environment.json';
+            options.folders = ['Two Legged', 'Overwrite Linked Files'];
+            options.insecureFileRead = true;
+            options.iterationCount = 3;
+            options.iterationData = './assets/models/data_files.json';
             break;
         default:
             break;
