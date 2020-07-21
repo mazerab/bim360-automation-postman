@@ -73,7 +73,7 @@ To successfully download files from BIM360 Docs, one cannot use Postman as it do
 
 [Upload Single File Documentation](upload_single_file)
 
-##### Uploading Revit Files
+##### Uploading Revit Linked Files
 
 [Upload Revit Linked Files Documentation](upload_linked_files)
 

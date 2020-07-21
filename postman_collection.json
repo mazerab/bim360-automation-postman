@@ -1803,7 +1803,7 @@
 							"script": {
 								"id": "2042a8cc-80f7-4fc0-a646-9c43a2c4d1ae",
 								"exec": [
-									"var file_name = pm.iterationData.get(\"name\");",
+									"var file_name = pm.iterationData.get(\"object_key\");",
 									"pm.environment.set(\"upload_file_name\", file_name);"
 								],
 								"type": "text/javascript"
@@ -1867,7 +1867,7 @@
 									"var objectName = object[1];",
 									"pm.environment.set(\"upload_model_object_name\", objectName);",
 									"",
-									"var filePath = pm.iterationData.get(\"path\");",
+									"var filePath = pm.iterationData.get(\"object_src\");",
 									"pm.environment.set(\"src_file_path\", filePath);"
 								],
 								"type": "text/javascript"
@@ -1906,12 +1906,9 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"mode\": \"file\",\n    \"file\":\"{{src_file_path}}/{{upload_file_name}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "text"
-								}
+							"mode": "file",
+							"file": {
+								"src": "{{object_src}}"
 							}
 						},
 						"url": {

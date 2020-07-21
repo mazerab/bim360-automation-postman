@@ -1,17 +1,14 @@
 const newman = require('newman');
-const fs = require('fs');
-const path = require('path');
+const { writeFile } = require('fs');
+const { join } = require('path');
 const prompt = require('prompt');
 
-const NodeUpload = require('./lib/upload');
-
 const testSuites = [
-    { '1': 'Download Published File' },
-    { '2': 'Upload Single File' },
+    { '1': 'Download Published File (Newman)' },
+    { '2': 'Upload Single File (Newman)' },
     { '3': 'Upload Linked Files (Newman)' },
-    { '4': 'Upload Linked Files (Node)' },
-    { '5': 'Download Linked Files' },
-    { '6': 'Project Setup' }
+    { '4': 'Download Linked Files (Newman)' },
+    { '5': 'Project Setup (Newman)' }
 ]
 
 const schema = {
@@ -32,13 +29,8 @@ prompt.get(schema, function(err, result) {
     Object.values(testSuites).forEach(function(value) {
         if (Object.keys(value) == result.testrun) {
             console.info(`  Starting Test Run: ${value[result.testrun]}`);
-            if (result.testrun === 4) {
-                const uploadJob = new NodeUpload();
-                uploadJob.nodeUploadLinkedFiles();
-            } else {
-                const options = setEnvironment(result.testrun);
-                runScript(options);
-            }
+            const options = setEnvironment(result.testrun);
+            runScript(options);
         }
     });
 });
@@ -46,9 +38,10 @@ prompt.get(schema, function(err, result) {
 function runScript(options) {
     newman.run({
         collection: require('./postman_collection.json'),
+        color: 'on',
         environment: require(options.environment),
         insecureFileRead: ( options.insecureFileRead ? options.insecureFileRead: false ),
-        iterationCount: ( options.iterationCount ? options.iterationData: 1),
+        iterationCount: ( options.iterationCount ? options.iterationCount: 1),
         iterationData: (options.iterationData? require(options.iterationData): ''),
         folder: options.folders,
         reporters: 'cli'
@@ -59,7 +52,7 @@ function runScript(options) {
         if (err) { return console.error(err); }
         switch (execution.item.name) {
             case 'Download File':
-                fs.writeFile(path.join(__dirname, 'output', 'Architecture.zip'), execution.response.stream, function (error) {
+                writeFile(join(__dirname, 'output', 'Architecture.zip'), execution.response.stream, function (error) {
                     if (error) { console.error(error); }
                 });
                 break;
@@ -73,13 +66,13 @@ function runScript(options) {
                 });
                 let xref = JSON.parse(xrefs[0].value);
                 xref = xref[xref_index];
-                fs.writeFile(path.join(__dirname, 'output', xref.file_name), execution.response.stream, function(error) {
+                writeFile(join(__dirname, 'output', xref.file_name), execution.response.stream, function(error) {
                     if (error) { console.error(error); }
                 });
                 break;
             }
             case 'Download Parent File':
-                fs.writeFile(path.join(__dirname, 'output', 'Architecture.rvt'), execution.response.stream, function (error) {
+                writeFile(join(__dirname, 'output', 'Architecture.rvt'), execution.response.stream, function (error) {
                     if (error) { console.error(error); }
                 });
                 break;
@@ -107,11 +100,11 @@ function setEnvironment(testrun) {
             options.iterationCount = 3;
             options.iterationData = './assets/models/data_files.json';
             break;
-        case 5:
+        case 4:
             options.environment = './assets/environment/download_linked_files.postman_environment.json';
             options.folders = ['Two Legged', 'Download Linked Files'];
             break;
-        case 6:
+        case 5:
             options.environment = './assets/environment/project_setup.postman_environment.json';
             options.folders = ['Two Legged', 'Project Setup']
             break;
