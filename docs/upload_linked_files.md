@@ -21,7 +21,7 @@ Due to a limitation with Postman, a separate script had to be written in Node.js
 
 1. Run the command `npm test`
 
-1. Input **4** for executing the **Upload Linked Files (Node)** test run
+1. Input **3** for executing the **Upload Linked Files (Node)** test run
 
 ![Node Script](./media/node_upload_linked_files.png)
 

@@ -27,7 +27,7 @@ In this scenario, we are trying to automate the creation of new BIM360 Docs proj
 
 1. Run the command `npm test`
 
-1. Input **6** for executing the **Project Setup** test run
+1. Input **5** for executing the **Project Setup** test run
 
 ![Project Setup](./media/newman_project_setup.png)
 

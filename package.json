@@ -22,7 +22,6 @@
   "author": "Bastien Mazeran",
   "license": "MIT",
   "dependencies": {
-    "forge-server-utils": "8.1.5",
     "newman": "5.1.2",
     "prompt": "1.0.0"
   }
