@@ -98,9 +98,28 @@
 						}
 					],
 					"description": "A folder to store all endpoints used for two-legged oAuth flows.",
-					"auth": {
-						"type": "noauth"
-					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "685d1465-d92e-4386-b882-6f16ead2a972",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e59a5cfb-24d1-42df-a39d-17a436d02a4a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
@@ -193,9 +212,6 @@
 				}
 			],
 			"description": "A folder to stores all the endpoints that pertain to authentication with the Forge platform.",
-			"auth": {
-				"type": "noauth"
-			},
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1349,6 +1365,11 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1499,10 +1520,32 @@
 					"response": []
 				}
 			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "95dde099-dad5-4687-a7fe-b933f6932aa4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5fc26031-6695-4b42-9b3f-772ed06afbf8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Upload Linked Files (Beta)",
+			"name": "Upload Linked Files",
 			"item": [
 				{
 					"name": "Hubs",
@@ -1510,7 +1553,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "41fb75f1-d3da-4476-a412-3e8a10fc2784",
+								"id": "c25a02f7-d013-48cd-bb84-ab38c859934e",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1559,7 +1602,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "91945f35-95ad-4797-8273-fb3bf3aa1114",
+								"id": "a8d063bc-2b5a-479a-9cf0-a1459e64d0a4",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1617,7 +1660,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7dcf709b-f69b-42fb-8b73-5ce3069be6a2",
+								"id": "9403a6ea-6420-40a5-9780-3fce7bb63fe4",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1680,7 +1723,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f4a39e92-e8ad-4147-bb79-11e75f1a8c31",
+								"id": "5ef14405-9c78-4a4e-8bb7-d3b5588f3cf2",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1744,7 +1787,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1238ae42-2f37-4553-a935-d2315111f326",
+								"id": "c420dfc1-eab3-4f8d-adf6-18b4bcb5a5f4",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -1758,7 +1801,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "d32406a9-b169-4890-ac94-d85092d4f62f",
+								"id": "2042a8cc-80f7-4fc0-a646-9c43a2c4d1ae",
 								"exec": [
 									"var file_name = pm.iterationData.get(\"name\");",
 									"pm.environment.set(\"upload_file_name\", file_name);"
@@ -1817,7 +1860,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "53466b0d-0d0f-4172-8c76-0d9629367c21",
+								"id": "e6b2e112-edf3-46bc-89b4-466ce55a25db",
 								"exec": [
 									"var objectId = pm.environment.get(\"upload_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -1833,7 +1876,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "26686339-7aa6-4c10-9119-4d07287ea032",
+								"id": "47f06a55-8fc5-4a26-8ccd-8dad80efbaa2",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1904,7 +1947,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "4610b6ee-4c19-497b-bb5f-e5dbc9c81bba",
+								"id": "22888ae7-4c6e-4c35-ac76-4b011c0fcdbb",
 								"exec": [
 									""
 								],
@@ -1914,7 +1957,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8372763e-f35f-4aa1-ae37-b18c267c0e23",
+								"id": "133e346f-8309-4e2f-bd85-9ba7d30ce963",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
