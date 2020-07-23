@@ -2026,17 +2026,17 @@
 							"script": {
 								"id": "d89721fd-459d-49e5-9a5c-46e3a0c4d1e6",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test('Status code is 200', function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"hub_id and hub_name should exist\", function () {",
+									"pm.test('hub_id and hub_name should exist', function () {",
 									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
 									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(hub) {",
-									"        pm.environment.set(\"hub_id\", hub.id);",
-									"        return hub.attributes.name === pm.environment.get(\"hub_name\");",
+									"        pm.environment.set('hub_id', hub.id);",
+									"        return hub.attributes.name === pm.environment.get('hub_name');",
 									"    });",
 									"});"
 								],
@@ -2075,17 +2075,17 @@
 							"script": {
 								"id": "efc47e56-64b3-4d57-afbc-31766205e5dd",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test('Status code is 200', function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"project_id and project_name should exist\", function () {",
+									"pm.test('project_id and project_name should exist', function () {",
 									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
 									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(project) {",
-									"        pm.environment.set(\"project_id\", project.id);",
-									"        return project.attributes.name === pm.environment.get(\"project_name\");",
+									"        pm.environment.set('project_id', project.id);",
+									"        return project.attributes.name === pm.environment.get('project_name');",
 									"    });",
 									"});"
 								],
@@ -2133,15 +2133,15 @@
 							"script": {
 								"id": "db3c2eb8-e3e7-4a96-90d8-43282116ab34",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test('Status code is 200', function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"project_files_folder_id should exist\", function () {",
+									"pm.test('project_files_folder_id should exist', function () {",
 									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
-									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
+									"        pm.environment.set('project_files_folder_id', folder.id);",
 									"        return folder.attributes.name === 'Project Files';",
 									"    });",
 									"});"
@@ -2196,17 +2196,17 @@
 							"script": {
 								"id": "a44318c7-1ec2-40df-a429-d1f6e02ef8e0",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test('Status code is 200', function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"upload_folder_id and upload_folder_name should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"upload_folder_id\")).to.equal(true);",
-									"    pm.expect(pm.environment.has(\"upload_folder_name\")).to.equal(true);",
+									"pm.test('upload_folder_id and upload_folder_name should exist', function () {",
+									"    pm.expect(pm.environment.has('upload_folder_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has('upload_folder_name')).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
-									"        pm.environment.set(\"upload_folder_id\", folder.id);",
-									"        return folder.attributes.name === pm.environment.get(\"upload_folder_name\");",
+									"        pm.environment.set('upload_folder_id', folder.id);",
+									"        return folder.attributes.name === pm.environment.get('upload_folder_name');",
 									"    });",
 									"});"
 								],
@@ -2260,18 +2260,18 @@
 							"script": {
 								"id": "c3d5592d-54ab-4aa5-b682-ca8e3dd0d5c4",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test('Status code is 200', function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"item_id and version_number should exist\", function () {",
-									"    pm.expect(pm.environment.has(\"item_id\")).to.equal(true);",
-									"    pm.expect(pm.environment.has(\"version_number\")).to.equal(true);",
+									"pm.test('item_id and version_number should exist', function () {",
+									"    pm.expect(pm.environment.has('item_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has('version_number')).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(item) {",
-									"        pm.environment.set(\"item_id\", item.id);",
-									"        pm.environment.set(\"version_number\", item.attributes.extension.version);",
-									"        return item.attributes.displayName === pm.iterationData.get(\"object_key\");",
+									"        pm.environment.set('item_id', item.id);",
+									"        pm.environment.set('version_number', item.attributes.extension.version);",
+									"        return item.attributes.displayName === pm.iterationData.get('object_key');",
 									"    });",
 									"});"
 								],
@@ -2325,10 +2325,10 @@
 							"script": {
 								"id": "06da0aa6-857f-4245-9c8b-fbff6f34a22d",
 								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
+									"pm.test('Status code is 201', function () {",
 									"    pm.response.to.have.status(201);",
 									"    var jsonData = pm.response.json();",
-									"    pm.environment.set(\"upload_model_object_id\", jsonData.data.id);",
+									"    pm.environment.set('upload_model_object_id', jsonData.data.id);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -2339,8 +2339,8 @@
 							"script": {
 								"id": "ff4cc8c6-74cc-4a87-8afe-424530e62d8e",
 								"exec": [
-									"var file_name = pm.iterationData.get(\"object_key\");",
-									"pm.environment.set(\"upload_file_name\", file_name);"
+									"var file_name = pm.iterationData.get('object_key');",
+									"pm.environment.set('upload_file_name', file_name);"
 								],
 								"type": "text/javascript"
 							}
@@ -2398,13 +2398,10 @@
 							"script": {
 								"id": "63617194-0700-4f73-9c28-22cc00645415",
 								"exec": [
-									"var objectId = pm.environment.get(\"upload_model_object_id\");",
-									"var object = objectId.split(\"/\");",
+									"var objectId = pm.environment.get('upload_model_object_id');",
+									"var object = objectId.split('/');",
 									"var objectName = object[1];",
-									"pm.environment.set(\"upload_model_object_name\", objectName);",
-									"",
-									"//var filePath = pm.iterationData.get(\"object_src\");",
-									"//pm.environment.set(\"src_file_path\", filePath);"
+									"pm.environment.set('upload_model_object_name', objectName);"
 								],
 								"type": "text/javascript"
 							}
@@ -2482,12 +2479,7 @@
 							"script": {
 								"id": "51d1c436-ea49-4868-bd8d-82848dd92f02",
 								"exec": [
-									"var next_version_number = pm.environment.get('version_number');",
-									"next_version_number = next_version_number.replace(/\\.0/, '');",
-									"var next_number = parseInt(next_version_number);",
-									"next_number += 1;",
-									"next_version_number = next_number.toFixed(1);",
-									"pm.environment.set('next_version_number', next_version_number);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -2497,7 +2489,7 @@
 							"script": {
 								"id": "77c173d6-5217-47e5-9056-e95be9c35fe9",
 								"exec": [
-									"pm.test(\"Status code is 201\", function () {",
+									"pm.test('Status code is 201', function () {",
 									"    pm.response.to.have.status(201);",
 									"});"
 								],
@@ -2505,6 +2497,11 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2517,11 +2514,16 @@
 								"key": "x-user-id",
 								"value": "{{x_user_id}}",
 								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\" \n    },\n    \"data\": {\n        \"type\": \"versions\",\n        \"attributes\": {\n            \"name\": \"{{upload_file_name}}\",\n            \"extension\": { \n                \"type\": \"versions:autodesk.bim360:File\", \n                \"version\": \"{{next_version_number}}\"\n            }\n        },\n        \"relationships\": {\n            \"item\": { \n                \"data\": { \n                    \"type\": \"items\", \n                    \"id\": \"{{item_id}}\"\n                }\n            },\n            \"storage\": { \n                \"data\": { \n                    \"type\": \"objects\",\n                    \"id\": \"{{upload_model_object_id}}\"\n                }\n            }\n        }\n   }\n}"
+							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\" \n    },\n    \"data\": {\n        \"type\": \"versions\",\n        \"attributes\": {\n            \"name\": \"{{upload_file_name}}\",\n            \"extension\": { \n                \"type\": \"versions:autodesk.bim360:File\", \n                \"version\": \"1.0\"\n            }\n        },\n        \"relationships\": {\n            \"item\": { \n                \"data\": { \n                    \"type\": \"items\", \n                    \"id\": \"{{item_id}}\"\n                }\n            },\n            \"storage\": { \n                \"data\": { \n                    \"type\": \"objects\",\n                    \"id\": \"{{upload_model_object_id}}\"\n                }\n            }\n        }\n   }\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/data/v1/projects/:project_id/versions",
