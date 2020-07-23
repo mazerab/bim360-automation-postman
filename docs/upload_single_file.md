@@ -19,7 +19,7 @@ In this scenario, we are automating the upload of a single AutoCAD drawing to a 
 
 1. Run the command `npm test`
 
-1. Input **2** for executing the **Upload Single File** test run
+1. Input **2** for executing the **Upload Single File (Newman)** test run
 
 ![Newman Script](./media/newman_upload_single_file.png)
 

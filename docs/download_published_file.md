@@ -32,7 +32,7 @@ In this scenario, the Revit linked files were setup in Revit desktop and publish
 
 1. Run the command `npm test`
 
-1. Input **1** for executing the **Download Published File** test run
+1. Input **1** for executing the **Download Published File (Newman)** test run
 
 ![Newman Script](./media/newman_download_published_file.png)
 

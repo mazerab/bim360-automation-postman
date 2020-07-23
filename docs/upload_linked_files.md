@@ -2,9 +2,7 @@
 
 In this scenario, we are automating the upload of Revit files to a BIM360 Docs folder.
 
-Due to a limitation with Postman, a separate script had to be written in Node.js to workaround the limitation.
-
-## Steps to run the single file upload
+## Steps to run the upload linked files
 
 1. Open in your favorite text editor [assets/environment/upload_linked_files.postman_environment.json](../assets/environment/upload_linked_files.postman_environment.json) and edit the environment variables' values
 
@@ -21,7 +19,7 @@ Due to a limitation with Postman, a separate script had to be written in Node.js
 
 1. Run the command `npm test`
 
-1. Input **3** for executing the **Upload Linked Files (Node)** test run
+1. Input **3** for executing the **Upload Linked Files (Newman)** test run
 
 ![Node Script](./media/node_upload_linked_files.png)
 
