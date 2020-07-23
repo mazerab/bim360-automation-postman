@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cbfaab8d-f456-47fd-9d1f-29b8cafbfea9",
+		"_postman_id": "99d30862-5633-47b7-ab02-f6545b9a483f",
 		"name": "BIM360 Automation",
 		"description": "A collection to document the Forge APIs used to automate tasks in BIM360 Docs.\n\nIt also defines the bearer token that will be passed to subsequent API requests to Forge. ",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -18,7 +18,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "80c679da-3dc0-45bc-95b1-fdd087e120f3",
+										"id": "a2d1a89e-6f2d-4288-85db-d19b62bfc644",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -36,7 +36,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fd1846ae-d083-427b-8ca0-525a6a292f7a",
+										"id": "18660a5e-c317-4b90-8f42-1ee66a0b6b90",
 										"exec": [
 											""
 										],
@@ -102,7 +102,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "685d1465-d92e-4386-b882-6f16ead2a972",
+								"id": "d654bcb9-a62c-4e7b-85e1-8e23bbf1ab9b",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -112,7 +112,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e59a5cfb-24d1-42df-a39d-17a436d02a4a",
+								"id": "4ba81b2a-bc7b-41ad-b336-53ec5542ca4e",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -132,7 +132,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "19eede08-7b5f-41fa-918b-fa88c3ae1c3c",
+										"id": "dd2c461c-d4aa-4d9b-bd4e-bccb7ceec8dc",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -189,7 +189,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8f119041-e947-4a5e-adf3-898011f4ab10",
+								"id": "c6966180-c0e4-49e4-a954-cc48601e91de",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -199,7 +199,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d6ca13be-1151-4b95-bf38-477b367a1a39",
+								"id": "8b26527c-5a1d-491c-9367-e4297e23fa2d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -216,7 +216,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "11f7a42e-f69a-4fb9-a55b-8d1aa68985ad",
+						"id": "6ae4180f-5191-4462-8ac4-0753ca6b7738",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -226,7 +226,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6840e2e1-352e-44a7-9ca1-af6a9fe7a9a5",
+						"id": "fddbff3b-0831-4d51-a647-bdcd9adb4f16",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -250,7 +250,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5ec5ec71-a604-4fa1-8135-96fc46dc2a8c",
+								"id": "5938aa90-e50a-4dfe-94b1-7d9cd3163bee",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -299,7 +299,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6d748c7f-89d7-42b8-b471-9238b444de48",
+								"id": "1096f6bb-60ae-4db5-b3d5-ea6ff1a3dc1d",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -357,7 +357,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4551313e-c48d-4c86-a993-cfdf084d40ec",
+								"id": "d1278ddf-4cea-4285-a58a-fdab76f05448",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -420,7 +420,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4157038f-2340-4e0a-9856-4f32fb16cac8",
+								"id": "cba3b151-033d-4916-8e84-d54c555449a6",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -484,7 +484,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c170d5ee-c8f4-4d1e-8dc0-9085d0244d86",
+								"id": "6342d125-b875-4889-b6a9-0d9ce3cb5264",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -549,7 +549,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "990959fd-323e-48ce-ba9d-50bc9636c4ef",
+								"id": "6df5dd9e-6dd5-4d87-8099-bc350fce5949",
 								"exec": [
 									"var objectId = pm.environment.get(\"arch_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -562,7 +562,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4d150999-552c-4b31-ab84-42b2e56a5555",
+								"id": "6505f81a-a7d3-42c4-8b4a-9c1bd511728b",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -615,7 +615,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "af00c7b2-a338-4279-af43-0910dacfaa79",
+								"id": "f0f04019-db75-4a5a-a132-366f33664a2a",
 								"exec": [
 									"var encoded = encodeURIComponent(postman.getEnvironmentVariable(\"arch_model_version_id\"));",
 									"postman.setEnvironmentVariable(\"encoded_arch_model_version_id\", encoded);"
@@ -626,7 +626,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cb88f64c-6c7c-4b75-850d-4b79078736a7",
+								"id": "31c64e7e-a8ba-400e-ab05-70b45a267e29",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -701,7 +701,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "820f6815-7e84-4464-af97-708574eb6e3e",
+								"id": "b9d39433-6ccd-4dd5-9cbc-3f3ce3883bd1",
 								"exec": [
 									"var xrefs = JSON.parse(pm.variables.get(\"xrefs\"));",
 									"var index = parseInt(pm.variables.get(\"xref_index\"));",
@@ -713,7 +713,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c9d9b549-531b-48ce-b173-8093fdfe0e6f",
+								"id": "ca8e0afd-3d02-4a42-b4ed-6767bdca5b0d",
 								"exec": [
 									"// If we are *not* on the last xref in the list,",
 									"// increment the index and set the next request ",
@@ -794,7 +794,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "19e0b93e-f3d8-4f99-8433-3c6de2f8e518",
+								"id": "55504719-a1ca-4b0b-a60b-1ee2c497d624",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -843,7 +843,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "626143a3-e452-4c4d-aade-59fc1cd69cb8",
+								"id": "aa0035a4-cd97-4860-a09e-3d2386b8e4b5",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -901,7 +901,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c136d284-26e9-488f-a21b-ced22b459237",
+								"id": "155a00bd-7648-4106-9199-4bfe1d4a4962",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -964,7 +964,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cf623177-2d30-4667-99d8-4bade9e5767e",
+								"id": "810286e5-c0df-43ae-aff7-25d9146b752a",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1028,7 +1028,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f626933c-d87d-4ee4-9da3-e496be6bd265",
+								"id": "4417a2d0-b0d3-439c-8cec-0637bd3f8fcc",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1093,7 +1093,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "77b427e0-4963-475f-9415-747a848ed884",
+								"id": "97523775-f64a-43ce-bc88-642d51c811b0",
 								"exec": [
 									"var objectId = pm.environment.get(\"arch_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -1106,7 +1106,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dd5be2ad-1166-4efd-9cbd-7ff5fc85b2ff",
+								"id": "cef7f023-31eb-46c2-8ebe-a5ab4bd49717",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1159,7 +1159,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "312fbaf5-2895-4c8d-a7f1-a4db652eca41",
+						"id": "68d7a4f8-0f2f-4c6d-9a90-be5b801f3844",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1169,7 +1169,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e460e7b5-99bb-494e-9004-e31880e9be84",
+						"id": "c2966f82-60a6-440b-ae25-bcd66cc62240",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1188,7 +1188,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5ec36f68-a548-4d79-8537-3e3ffe054e77",
+								"id": "4e9fd1ac-a8c3-496f-b02c-67b49e43f90d",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1237,7 +1237,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8d1493d6-4ea9-4ea8-bfbc-dd88bd6e2de4",
+								"id": "a037327d-f356-4368-bb0e-7165492e6b60",
 								"exec": [
 									"var account_id = pm.environment.get(\"hub_id\");",
 									"account_id = account_id.replace(\"b.\", \"\");",
@@ -1249,7 +1249,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8a31c93a-b702-426f-845b-e2b84ccc0c53",
+								"id": "f9426c3d-18ec-4f8e-8e32-827b79b3c70b",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1300,7 +1300,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "00e563f2-ace7-4209-a232-babb91ab101a",
+								"id": "50183782-4211-4acf-98e7-cafa5eb85c31",
 								"exec": [
 									"var account_id = pm.environment.get(\"hub_id\");",
 									"account_id = account_id.replace(\"b.\", \"\");",
@@ -1349,7 +1349,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "38ab0eca-93f2-42ea-97cd-425063ff4a5d",
+								"id": "3d49366a-c189-4b76-b07e-86e775bbed2b",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -1414,7 +1414,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5dd41cd4-2b4c-4922-ab56-2e44dd46118a",
+								"id": "822b333d-9752-42fa-9c1b-ca5f854e5087",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1465,7 +1465,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8ccb3ead-62ac-4982-a77d-9d11d14c2ef5",
+								"id": "bf758f88-b222-49cb-a3dd-90bd98aa2fb6",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -1524,7 +1524,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "95dde099-dad5-4687-a7fe-b933f6932aa4",
+						"id": "b7d598ea-b7e0-44b1-82df-a13e96b9fe01",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1534,7 +1534,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5fc26031-6695-4b42-9b3f-772ed06afbf8",
+						"id": "3248835e-64aa-4ee2-a869-87cf5965432e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1553,7 +1553,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c25a02f7-d013-48cd-bb84-ab38c859934e",
+								"id": "84828865-4755-4eb1-bd2d-47f48040b2c8",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1602,7 +1602,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a8d063bc-2b5a-479a-9cf0-a1459e64d0a4",
+								"id": "39b8b943-4aeb-4ebe-b302-af7fde4986c7",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1660,7 +1660,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9403a6ea-6420-40a5-9780-3fce7bb63fe4",
+								"id": "ebb24b92-2535-4f56-b2bb-67f3d3908493",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1723,7 +1723,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5ef14405-9c78-4a4e-8bb7-d3b5588f3cf2",
+								"id": "300a6ead-62e1-4a70-ad80-9950b78609d2",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1787,7 +1787,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c420dfc1-eab3-4f8d-adf6-18b4bcb5a5f4",
+								"id": "dc960178-c1ba-49e5-b8a9-793113a22896",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -1801,7 +1801,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2042a8cc-80f7-4fc0-a646-9c43a2c4d1ae",
+								"id": "f4c2cd7f-2fc7-4ecf-a90a-6e1a22b8f26f",
 								"exec": [
 									"var file_name = pm.iterationData.get(\"object_key\");",
 									"pm.environment.set(\"upload_file_name\", file_name);"
@@ -1860,15 +1860,15 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e6b2e112-edf3-46bc-89b4-466ce55a25db",
+								"id": "9735b09e-2f98-4614-82a0-61cae60e11cb",
 								"exec": [
 									"var objectId = pm.environment.get(\"upload_model_object_id\");",
 									"var object = objectId.split(\"/\");",
 									"var objectName = object[1];",
 									"pm.environment.set(\"upload_model_object_name\", objectName);",
 									"",
-									"var filePath = pm.iterationData.get(\"object_src\");",
-									"pm.environment.set(\"src_file_path\", filePath);"
+									"//var filePath = pm.iterationData.get(\"object_src\");",
+									"//pm.environment.set(\"src_file_path\", filePath);"
 								],
 								"type": "text/javascript"
 							}
@@ -1876,7 +1876,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "47f06a55-8fc5-4a26-8ccd-8dad80efbaa2",
+								"id": "2d0186d5-4cd6-4425-8af5-c62e46bc4cda",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1944,7 +1944,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "22888ae7-4c6e-4c35-ac76-4b011c0fcdbb",
+								"id": "3b6aba54-d186-400a-b601-0696d271bd02",
 								"exec": [
 									""
 								],
@@ -1954,7 +1954,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "133e346f-8309-4e2f-bd85-9ba7d30ce963",
+								"id": "a928475a-9dcf-4174-a40d-51fb35fefb90",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -2016,7 +2016,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Upload Single File",
+			"name": "Overwrite Linked Files",
 			"item": [
 				{
 					"name": "Hubs",
@@ -2024,7 +2024,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "bd07c759-d8b2-41e2-92fe-7d3d121a0da5",
+								"id": "d89721fd-459d-49e5-9a5c-46e3a0c4d1e6",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2073,7 +2073,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "05a2cee3-b0ea-43e6-9d60-d0c3b587042e",
+								"id": "efc47e56-64b3-4d57-afbc-31766205e5dd",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2131,7 +2131,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "55b47253-bd3f-4e35-a380-69f133eb05a9",
+								"id": "db3c2eb8-e3e7-4a96-90d8-43282116ab34",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2194,7 +2194,540 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a668241e-17dd-4ed5-a59e-52270622efe0",
+								"id": "a44318c7-1ec2-40df-a429-d1f6e02ef8e0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"upload_folder_id and upload_folder_name should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"upload_folder_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"upload_folder_name\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(folder) {",
+									"        pm.environment.set(\"upload_folder_id\", folder.id);",
+									"        return folder.attributes.name === pm.environment.get(\"upload_folder_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}"
+								},
+								{
+									"key": "folder_id",
+									"value": "{{project_files_folder_id}}"
+								}
+							]
+						},
+						"description": "Retrieves the Project Files folder contents."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c3d5592d-54ab-4aa5-b682-ca8e3dd0d5c4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"item_id and version_number should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"item_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"version_number\")).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(item) {",
+									"        pm.environment.set(\"item_id\", item.id);",
+									"        pm.environment.set(\"version_number\", item.attributes.extension.version);",
+									"        return item.attributes.displayName === pm.iterationData.get(\"object_key\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/folders/:folder_id/contents",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"folders",
+								":folder_id",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}"
+								},
+								{
+									"key": "folder_id",
+									"value": "{{upload_folder_id}}"
+								}
+							]
+						},
+						"description": "Retrieves the Project Files folder contents."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Storage Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06da0aa6-857f-4245-9c8b-fbff6f34a22d",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"upload_model_object_id\", jsonData.data.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ff4cc8c6-74cc-4a87-8afe-424530e62d8e",
+								"exec": [
+									"var file_name = pm.iterationData.get(\"object_key\");",
+									"pm.environment.set(\"upload_file_name\", file_name);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": {\n        \"type\": \"objects\",\n        \"attributes\": {\n            \"name\": \"{{upload_file_name}}\"\n        },\n        \"relationships\": {\n            \"target\": {\n                \"data\": {\n                    \"type\": \"folders\",\n                    \"id\": \"{{upload_folder_id}}\"\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/storage",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"storage"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}"
+								}
+							]
+						},
+						"description": "Creates a new storage location to upload a new file to."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "63617194-0700-4f73-9c28-22cc00645415",
+								"exec": [
+									"var objectId = pm.environment.get(\"upload_model_object_id\");",
+									"var object = objectId.split(\"/\");",
+									"var objectName = object[1];",
+									"pm.environment.set(\"upload_model_object_name\", objectName);",
+									"",
+									"//var filePath = pm.iterationData.get(\"object_src\");",
+									"//pm.environment.set(\"src_file_path\", filePath);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "db3779a2-818a-4a50-8282-55bcbbc3bfa8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/octet-stream"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "{{object_src}}"
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/oss/v2/buckets/:bucket_key/objects/:object_name",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":bucket_key",
+								"objects",
+								":object_name"
+							],
+							"variable": [
+								{
+									"key": "bucket_key",
+									"value": "{{bucket_key}}"
+								},
+								{
+									"key": "object_name",
+									"value": "{{upload_model_object_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Additional Version",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "51d1c436-ea49-4868-bd8d-82848dd92f02",
+								"exec": [
+									"var next_version_number = pm.environment.get('version_number');",
+									"next_version_number = next_version_number.replace(/\\.0/, '');",
+									"var next_number = parseInt(next_version_number);",
+									"next_number += 1;",
+									"next_version_number = next_number.toFixed(1);",
+									"pm.environment.set('next_version_number', next_version_number);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "77c173d6-5217-47e5-9056-e95be9c35fe9",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "x-user-id",
+								"value": "{{x_user_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonapi\": { \n        \"version\": \"1.0\" \n    },\n    \"data\": {\n        \"type\": \"versions\",\n        \"attributes\": {\n            \"name\": \"{{upload_file_name}}\",\n            \"extension\": { \n                \"type\": \"versions:autodesk.bim360:File\", \n                \"version\": \"{{next_version_number}}\"\n            }\n        },\n        \"relationships\": {\n            \"item\": { \n                \"data\": { \n                    \"type\": \"items\", \n                    \"id\": \"{{item_id}}\"\n                }\n            },\n            \"storage\": { \n                \"data\": { \n                    \"type\": \"objects\",\n                    \"id\": \"{{upload_model_object_id}}\"\n                }\n            }\n        }\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/data/v1/projects/:project_id/versions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data",
+								"v1",
+								"projects",
+								":project_id",
+								"versions"
+							],
+							"variable": [
+								{
+									"key": "project_id",
+									"value": "{{project_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Upload Single File",
+			"item": [
+				{
+					"name": "Hubs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "91e68dd2-0973-4c72-bd67-8ddd77a2b080",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"hub_id and hub_name should exist\", function () {",
+									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(hub) {",
+									"        pm.environment.set(\"hub_id\", hub.id);",
+									"        return hub.attributes.name === pm.environment.get(\"hub_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hub Projects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75306631-814d-45ee-8b47-6262c7660fb5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"project_id and project_name should exist\", function () {",
+									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(project) {",
+									"        pm.environment.set(\"project_id\", project.id);",
+									"        return project.attributes.name === pm.environment.get(\"project_name\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects"
+							],
+							"variable": [
+								{
+									"key": "hub_id",
+									"value": "{{hub_id}}"
+								}
+							]
+						},
+						"description": "Retrieves the hub projects."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Top Folders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "101513fa-629f-464b-a520-ab8cf8628031",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"project_files_folder_id should exist\", function () {",
+									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.data.some(function(folder) {",
+									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
+									"        return folder.attributes.name === 'Project Files';",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "{{x_user_id}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"project",
+								"v1",
+								"hubs",
+								":hub_id",
+								"projects",
+								":project_id",
+								"topFolders"
+							],
+							"variable": [
+								{
+									"key": "hub_id",
+									"value": "{{hub_id}}"
+								},
+								{
+									"key": "project_id",
+									"value": "{{project_id}}"
+								}
+							]
+						},
+						"description": "Retrieves the project top folders."
+					},
+					"response": []
+				},
+				{
+					"name": "Project Files Folder Contents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5deafb7a-d36a-4126-a24b-6a38383886e2",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2258,7 +2791,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9fa163ce-812b-40bc-a5e4-a863a2e17973",
+								"id": "ae8f4770-9651-49db-8430-498ddd77a060",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -2272,7 +2805,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "5e1536a2-02b5-46a1-9a97-f57e4f5718e3",
+								"id": "e8232cca-87fa-42dc-9bf4-27a5061ed142",
 								"exec": [
 									""
 								],
@@ -2330,7 +2863,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "922bfaa7-9101-44cf-810c-b88a3c10e0bf",
+								"id": "05278faa-5237-454a-9059-6b86f7f2f983",
 								"exec": [
 									"var objectId = pm.environment.get(\"upload_model_object_id\");",
 									"var object = objectId.split(\"/\");",
@@ -2343,7 +2876,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d74e5d10-5813-4304-9d80-b3396049bcb4",
+								"id": "14b24060-24f4-4ff6-b339-16b424256d30",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -2414,7 +2947,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "795d25f9-90b1-444f-b025-b2bc817016d7",
+								"id": "d5a77bfe-e0ad-486e-adb2-2a0e16d7741f",
 								"exec": [
 									""
 								],
@@ -2424,7 +2957,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4a716433-0b44-4d8e-947d-519679feb17b",
+								"id": "209695a5-3d93-4076-a280-12b0513e1a72",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -2500,7 +3033,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "abe937c6-eae4-4887-8535-60db7cb0e6e8",
+				"id": "79e696c9-e701-45a7-96ab-fa4219155801",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2510,7 +3043,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d959d05e-7a7d-4117-98e9-2ff24372f910",
+				"id": "ba323000-668f-4317-be5a-dfd4eb406072",
 				"type": "text/javascript",
 				"exec": [
 					""
