@@ -1,5 +1,5 @@
 const newman = require('newman');
-const { existsSync, mkdirSync, writeFile, fstat } = require('fs');
+const { existsSync, mkdirSync, writeFile } = require('fs');
 const { join } = require('path');
 const prompt = require('prompt');
 

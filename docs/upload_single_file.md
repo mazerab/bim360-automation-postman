@@ -11,9 +11,9 @@ In this scenario, we are automating the upload of a single AutoCAD drawing to a 
     ```hub_name=<your BIM360 hub name>``` \
     ```project_name=<your BIM360 project name>``` \
     ```upload_folder_name=<your BIM360 folder name>``` \
-    ```upload_file_name=<your BIM360 folder name>``` \
+    ```upload_file_name=<upload filename>``` \
     ```scope=data:read data:create data:write``` \
-    ```x-user-id=<your user ID>``` \
+    ```x-user-id=<your user ID>```
 
 1. Open a terminal and change directory to the repository
 
