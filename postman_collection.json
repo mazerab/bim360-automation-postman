@@ -211,7 +211,7 @@
 					"_postman_isSubFolder": true
 				}
 			],
-			"description": "A folder to stores all the endpoints that pertain to authentication with the Forge platform.",
+			"description": "This collection folder documents the Forge Authentication API endpoints that pertain to authentication with the Forge platform.",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -237,11 +237,6 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Copy From",
-			"item": [],
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "Download Linked Files",
 			"item": [
 				{
@@ -257,8 +252,8 @@
 									"});",
 									"",
 									"pm.test(\"hub_id and hub_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(hub) {",
 									"        pm.environment.set(\"hub_id\", hub.id);",
@@ -306,8 +301,8 @@
 									"});",
 									"",
 									"pm.test(\"project_id and project_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(project) {",
 									"        pm.environment.set(\"project_id\", project.id);",
@@ -364,11 +359,11 @@
 									"});",
 									"",
 									"pm.test(\"project_files_folder_id should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_files_folder_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
 									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
-									"        return folder.attributes.name === 'Project Files';",
+									"        return folder.attributes.name === \"Project Files\";",
 									"    });",
 									"});"
 								],
@@ -639,7 +634,7 @@
 									"    const xrefs = [];",
 									"    jsonData.data.some(function(version) {",
 									"        jsonData.included.some(function(object) {",
-									"            if (object.type === 'versions' && version.id === object.id) {",
+									"            if (object.type === \"versions\" && version.id === object.id) {",
 									"                xrefs.push({",
 									"                    \"file_name\": object.attributes.name,",
 									"                    \"object_id\": object.relationships.storage.data.id,",
@@ -722,7 +717,7 @@
 									"var index = parseInt(pm.variables.get(\"xref_index\"));",
 									"if (index + 1 < xrefs.length){",
 									"    pm.variables.set(\"xref_index\", index + 1);",
-									"    postman.setNextRequest('Download Linked File');",
+									"    postman.setNextRequest(\"Download Linked File\");",
 									"} else {",
 									"    postman.setNextRequest(null)",
 									"}",
@@ -783,6 +778,29 @@
 					"response": []
 				}
 			],
+			"description": "\nThis collection folder documents all the Forge Data Management API endpoints necessary to successfully download linked files from BIM360 Docs.\n\nThe high-level steps are:\n\nGET Hubs\nGET Hub Projects\nGET Project Top Folders\nGET Project Files Folder Contents\nGET Download Parent File\nGET Relationships Refs\nGET Download Linked File\n\nThis method only works when the Revit host model and linked files are uploaded using the Upload as linked files command in BIM360 Docs.\n\nIn this scenario, the Architecture.rvt file is the parent model. The Mechanical.rvt and Structural.rvt models are the linked files.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ed229238-584f-4a25-9d8b-f095717173f4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb729b1d-6c55-457c-9f41-5f94ac4c2885",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -801,8 +819,8 @@
 									"});",
 									"",
 									"pm.test(\"hub_id and hub_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(hub) {",
 									"        pm.environment.set(\"hub_id\", hub.id);",
@@ -850,8 +868,8 @@
 									"});",
 									"",
 									"pm.test(\"project_id and project_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(project) {",
 									"        pm.environment.set(\"project_id\", project.id);",
@@ -908,11 +926,11 @@
 									"});",
 									"",
 									"pm.test(\"project_files_folder_id should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_files_folder_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
 									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
-									"        return folder.attributes.name === 'Project Files';",
+									"        return folder.attributes.name === \"Project Files\";",
 									"    });",
 									"});"
 								],
@@ -1154,7 +1172,7 @@
 					"response": []
 				}
 			],
-			"description": "Collection of endpoints needed to successfully download a published Revit model with linked files from BIM360 Docs.\n\nThe download object is a compressed archive that contains all the Revit model files. ",
+			"description": "\nThis collection folder documents all the Forge Data Management API endpoints necessary to successfully download a published Revit model with linked files from BIM360 Docs.\n\nThe high-level steps are:\n\nGET Hubs\nGET Hub Projects\nGET Project Top Folders\nGET Project Files Folder Contents\nGET Project Folder Content\nGET Download File\n\nThis method only works when the Revit host model and linked files are uploaded to BIM360 Docs using Revit Desktop publish to Docs feature.\n\nIn this scenario, the Architecture.rvt file is the parent model. The Mechanical.rvt and Structural.rvt models are the linked files.\n\nThe download object is a compressed archive that contains all the Revit model files. ",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1195,8 +1213,8 @@
 									"});",
 									"",
 									"pm.test(\"hub_id and hub_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(hub) {",
 									"        pm.environment.set(\"hub_id\", hub.id);",
@@ -1520,6 +1538,7 @@
 					"response": []
 				}
 			],
+			"description": "\nThis collection folder documents all the Forge BIM360 API endpoints necessary to successfully create a new project in BIM360 Docs.\n\nThe high-level steps are:\n\nGET Hubs\nGET Business Units\nPOST Create Project\nGET Companies\nPOST Add Project Admin\n\nIn this scenario, a user edits the assets/environment/project_setup.postman_environment.json file to specify the attributes of the new project.\n\nUpon successful project creation, a welcome email is sent to the API user's inbox.",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1560,8 +1579,8 @@
 									"});",
 									"",
 									"pm.test(\"hub_id and hub_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(hub) {",
 									"        pm.environment.set(\"hub_id\", hub.id);",
@@ -1609,8 +1628,8 @@
 									"});",
 									"",
 									"pm.test(\"project_id and project_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(project) {",
 									"        pm.environment.set(\"project_id\", project.id);",
@@ -1667,11 +1686,11 @@
 									"});",
 									"",
 									"pm.test(\"project_files_folder_id should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_files_folder_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
 									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
-									"        return folder.attributes.name === 'Project Files';",
+									"        return folder.attributes.name === \"Project Files\";",
 									"    });",
 									"});"
 								],
@@ -1865,10 +1884,7 @@
 									"var objectId = pm.environment.get(\"upload_model_object_id\");",
 									"var object = objectId.split(\"/\");",
 									"var objectName = object[1];",
-									"pm.environment.set(\"upload_model_object_name\", objectName);",
-									"",
-									"//var filePath = pm.iterationData.get(\"object_src\");",
-									"//pm.environment.set(\"src_file_path\", filePath);"
+									"pm.environment.set(\"upload_model_object_name\", objectName);"
 								],
 								"type": "text/javascript"
 							}
@@ -2013,6 +2029,29 @@
 					"response": []
 				}
 			],
+			"description": "\nThis collection folder documents all the Forge Data Management API endpoints necessary to successfully upload Revit linked files to BIM360 Docs.\n\nThe high-level steps are:\n\nGET Hubs\nGET Hub Projects\nGET Project Top Folders\nGET Project Files Folder Contents\nPOST Create Storage Location\nPUT Upload File\nPOST Create First Version",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a3ee7995-88fe-4a60-932e-9d318bcdb060",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "beccb445-caaf-4fc5-bc98-a0dfe8d51a35",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -2031,12 +2070,12 @@
 									"});",
 									"",
 									"pm.test('hub_id and hub_name should exist', function () {",
-									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(hub) {",
-									"        pm.environment.set('hub_id', hub.id);",
-									"        return hub.attributes.name === pm.environment.get('hub_name');",
+									"        pm.environment.set(\"hub_id\", hub.id);",
+									"        return hub.attributes.name === pm.environment.get(\"hub_name\");",
 									"    });",
 									"});"
 								],
@@ -2075,17 +2114,17 @@
 							"script": {
 								"id": "db836d41-43cf-4f32-b527-84d3c6c12278",
 								"exec": [
-									"pm.test('Status code is 200', function () {",
+									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
 									"pm.test('project_id and project_name should exist', function () {",
-									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(project) {",
-									"        pm.environment.set('project_id', project.id);",
-									"        return project.attributes.name === pm.environment.get('project_name');",
+									"        pm.environment.set(\"project_id\", project.id);",
+									"        return project.attributes.name === pm.environment.get(\"project_name\");",
 									"    });",
 									"});"
 								],
@@ -2133,16 +2172,16 @@
 							"script": {
 								"id": "db94b4a5-5e30-4dfb-80be-b437cc0d1383",
 								"exec": [
-									"pm.test('Status code is 200', function () {",
+									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test('project_files_folder_id should exist', function () {",
-									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"pm.test(\"project_files_folder_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"project_files_folder_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
-									"        pm.environment.set('project_files_folder_id', folder.id);",
-									"        return folder.attributes.name === 'Project Files';",
+									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
+									"        return folder.attributes.name === \"Project Files\";",
 									"    });",
 									"});"
 								],
@@ -2196,17 +2235,17 @@
 							"script": {
 								"id": "4c59eeb3-4e98-4eda-b0b7-10f950c04bcb",
 								"exec": [
-									"pm.test('Status code is 200', function () {",
+									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test('upload_folder_id and upload_folder_name should exist', function () {",
-									"    pm.expect(pm.environment.has('upload_folder_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('upload_folder_name')).to.equal(true);",
+									"pm.test(\"upload_folder_id and upload_folder_name should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"upload_folder_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"upload_folder_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
-									"        pm.environment.set('upload_folder_id', folder.id);",
-									"        return folder.attributes.name === pm.environment.get('upload_folder_name');",
+									"        pm.environment.set(\"upload_folder_id\", folder.id);",
+									"        return folder.attributes.name === pm.environment.get(\"upload_folder_name\");",
 									"    });",
 									"});"
 								],
@@ -2260,16 +2299,16 @@
 							"script": {
 								"id": "c4065b6c-01d5-4d18-90ed-73c4f71c49d0",
 								"exec": [
-									"pm.test('Status code is 200', function () {",
+									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test('item_id should exist', function () {",
-									"    pm.expect(pm.environment.has('item_id')).to.equal(true);",
+									"pm.test(\"item_id should exist\", function () {",
+									"    pm.expect(pm.environment.has(\"item_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(item) {",
-									"        pm.environment.set('item_id', item.id);",
-									"        return item.attributes.displayName === pm.iterationData.get('object_key');",
+									"        pm.environment.set(\"item_id\", item.id);",
+									"        return item.attributes.displayName === pm.iterationData.get(\"object_key\");",
 									"    });",
 									"});"
 								],
@@ -2323,10 +2362,10 @@
 							"script": {
 								"id": "4a5198e4-4bce-4c40-b954-c9efcdc5d690",
 								"exec": [
-									"pm.test('Status code is 201', function () {",
+									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
 									"    var jsonData = pm.response.json();",
-									"    pm.environment.set('upload_model_object_id', jsonData.data.id);",
+									"    pm.environment.set(\"upload_model_object_id\", jsonData.data.id);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -2337,8 +2376,8 @@
 							"script": {
 								"id": "4a2ea8db-1c20-4e30-81cf-486b0ea8c947",
 								"exec": [
-									"var file_name = pm.iterationData.get('object_key');",
-									"pm.environment.set('upload_file_name', file_name);"
+									"var file_name = pm.iterationData.get(\"object_key\");",
+									"pm.environment.set(\"upload_file_name\", file_name);"
 								],
 								"type": "text/javascript"
 							}
@@ -2396,10 +2435,10 @@
 							"script": {
 								"id": "0fee6a5f-3e92-4b23-9156-7d9c3cc74ce2",
 								"exec": [
-									"var objectId = pm.environment.get('upload_model_object_id');",
-									"var object = objectId.split('/');",
+									"var objectId = pm.environment.get(\"upload_model_object_id\");",
+									"var object = objectId.split(\"/\");",
 									"var objectName = object[1];",
-									"pm.environment.set('upload_model_object_name', objectName);"
+									"pm.environment.set(\"upload_model_object_name\", objectName);"
 								],
 								"type": "text/javascript"
 							}
@@ -2487,7 +2526,7 @@
 							"script": {
 								"id": "b158fbdb-9891-4fff-816c-7e392dba92db",
 								"exec": [
-									"pm.test('Status code is 201', function () {",
+									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
 									"});"
 								],
@@ -2546,6 +2585,29 @@
 					"response": []
 				}
 			],
+			"description": "\nThis collection folder documents all the Forge Data Management API endpoints necessary to successfully upload new versions of Revit linked files to BIM360 Docs.\n\nThe high-level steps are:\n\nGET Hubs\nGET Hub Projects\nGET Project Top Folders\nGET Project Files Folder Contents\nGET Upload Folder Contents\nPOST Create Storage Location\nPUT Upload File\nPOST Create Additional Version",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "53c9d434-04ec-4b8a-93be-10735dfc6420",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2c28d9d-85b5-4773-88e0-2f7076caf20d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -2564,8 +2626,8 @@
 									"});",
 									"",
 									"pm.test(\"hub_id and hub_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('hub_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('hub_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"hub_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(hub) {",
 									"        pm.environment.set(\"hub_id\", hub.id);",
@@ -2613,8 +2675,8 @@
 									"});",
 									"",
 									"pm.test(\"project_id and project_name should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_id')).to.equal(true);",
-									"    pm.expect(pm.environment.has('project_name')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_id\")).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_name\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(project) {",
 									"        pm.environment.set(\"project_id\", project.id);",
@@ -2671,11 +2733,11 @@
 									"});",
 									"",
 									"pm.test(\"project_files_folder_id should exist\", function () {",
-									"    pm.expect(pm.environment.has('project_files_folder_id')).to.equal(true);",
+									"    pm.expect(pm.environment.has(\"project_files_folder_id\")).to.equal(true);",
 									"    var jsonData = pm.response.json();",
 									"    jsonData.data.some(function(folder) {",
 									"        pm.environment.set(\"project_files_folder_id\", folder.id);",
-									"        return folder.attributes.name === 'Project Files';",
+									"        return folder.attributes.name === \"Project Files\";",
 									"    });",
 									"});"
 								],
@@ -3014,6 +3076,29 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"description": "\nThis collection folder documents all the Forge Data Management API endpoints necessary to successfully upload a single file to BIM360 Docs.\n\nThe high-level steps are:\n\nGET Hubs\nGET Hub Projects\nGET Project Top Folders\nGET Project Files Folder Contents\nPOST Create Storage Location\nPUT Upload File\nPOST Create First Version",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9189e6ee-876d-4e47-9e02-3b8f1add6c47",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "30ef242b-0c7c-49b7-8b09-f3cfd0894ba9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
