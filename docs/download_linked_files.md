@@ -14,7 +14,6 @@ In this scenario, the **Architecture.rvt** file is the parent model. The **Mecha
 
     ```arch_file_name=Architecture.rvt``` \
     ```arch_folder_name=<your Docs folder>``` \
-    ```base_url=https://developer.api.autodesk.com``` \
     ```client_id=<your Forge app client ID>``` \
     ```client_secret=<your Forge app client secret>``` \
     ```hub_name=<your BIM360 hub name>``` \
