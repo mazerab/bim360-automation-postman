@@ -20,13 +20,12 @@ In this scenario, the Revit linked files were setup in Revit desktop and publish
 
     ```arch_file_name=<your Revit model file name>``` \
     ```arch_folder_name=<your BIM360 folder name>``` \
-    ```base_url=https://developer.api.autodesk.com``` \
     ```client_id=<your Forge app client ID>``` \
     ```client_secret=<your Forge app client secret>``` \
     ```hub_name=<your BIM360 hub name>``` \
     ```project_name=<your BIM360 project name>``` \
     ```scope=data:read``` \
-    ```x-user-id=<your user ID>``` \
+    ```x-user-id=<your user ID>```
 
 1. Open a terminal and change directory to the repository
 

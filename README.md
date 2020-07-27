@@ -61,6 +61,12 @@ The current environment templates JSON files are located under `./assets/environ
 
 To successfully download files from BIM360 Docs, one cannot use Postman as it does not support downloading files to disc. Instead, one can use Newman to run Postman collection in a command line and write the response binary to a file on you local disk.
 
+##### X-User-Id Header
+
+Before running any of the below test runs, one must determine first the user id value.
+
+[Retriving User Id](docs/get_x_user_id)
+
 ##### Downloading a Revit Published File
 
 [Download Revit Published File Documentation](docs/download_published_file)

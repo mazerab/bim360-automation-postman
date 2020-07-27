@@ -1,5 +1,5 @@
 const newman = require('newman');
-const { writeFile } = require('fs');
+const { existsSync, mkdirSync, writeFile, fstat } = require('fs');
 const { join } = require('path');
 const prompt = require('prompt');
 
@@ -27,6 +27,7 @@ prompt.start();
 
 prompt.get(schema, function(err, result) {
     if (err) { throw new Error(err); }
+    createOutputFolder();
     Object.values(testSuites).forEach(function(value) {
         if (Object.keys(value) == result.testrun) {
             console.info(`  Starting Test Run: ${value[result.testrun]}`);
@@ -35,6 +36,13 @@ prompt.get(schema, function(err, result) {
         }
     });
 });
+
+function createOutputFolder() {
+    const outputDir = join(__dirname, 'output');
+    if (!existsSync(outputDir)) {
+        mkdirSync(outputDir);
+    }
+}
 
 function runScript(options) {
     newman.run({
