@@ -16,6 +16,7 @@
 * [Description](#description)
 * [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
+* [Installation](#installation)
 * [The anatomy of a Postman Request](#the-anatomy-of-a-postman-request)
 * [Documentation](#documentation)
 * [Sample Data](#sample-data)
@@ -40,6 +41,14 @@ It focuses on the process of writing, documenting, running, and automating API t
 ## Getting Started
 
 This section will guide you through getting the Postman collection up and running on your own system, as well as running your Postman collection as a command line using newman NPM library.
+
+## Installation
+
+To run the Postman and Newman automations, please follow the steps below:
+
+1. In a terminal of your choice, run the command `git clone https://github.com/mazerab/bim360-automation-postman.git`
+1. Change directory to the new repository folder
+1. Run the command `npm install`
 
 ## The anatomy of a Postman Request
 
