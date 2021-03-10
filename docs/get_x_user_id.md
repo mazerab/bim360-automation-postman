@@ -14,7 +14,7 @@ In a two-legged authentication context, the app has access to all users specifie
 
 1. Click on **Get New Access Token** button
 
-1. Specify the values as shown in below screenshot
+1. Specify the values as shown in below screenshot (please enter the Callback URL you registered for your Forge app as Postman will intercept the call)
 
 ![3 Legged Bearer Token](media/get_3_legged_token.png)
 
